@@ -7,8 +7,8 @@
     <ProjectGuid>{CA9E6258-1F25-43B7-9066-F3B0138631DF}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Damo1</RootNamespace>
-    <AssemblyName>Damo1</AssemblyName>
+    <RootNamespace>Demo2</RootNamespace>
+    <AssemblyName>Demo2</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

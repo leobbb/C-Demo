@@ -43,26 +43,59 @@ namespace ConApp1
 
             // 字符串处理
 
-            Console.WriteLine("input IP address:");
-            string url = Console.ReadLine();
-            string protocol = GetProtocal(url);
-            Console.WriteLine(protocol);
+            //Console.WriteLine("input IP address:");
+            //string url = Console.ReadLine();
+            //string protocol = GetProtocal(url);
+            //Console.WriteLine(protocol);
+
+            // 字符串处理 plus
+            // hello world lee --> HelloWorldLee 
+
+            Console.WriteLine("input a string, split by space ");
+            string str = Console.ReadLine();
+            string result = transString(str);
+            Console.WriteLine("result is  " + result);
 
             Console.ReadLine();
 
         }
 
-        private static string GetProtocal(string url)
+        private static string transString(string str)
         {
-            string [] strArr = url.Split(":".ToCharArray());
-            if(strArr.Length == 2)
+            string[] strArr = str.Split(" ".ToCharArray());
+            string[] descArr = new string[strArr.Length];
+            for(int i=0 ; i< strArr.Length; i++)
             {
-                return "IP Protocal is " + strArr[0];
+                string word = transWord(strArr[i]);
+                descArr[i] = word;
             }
-            else
-            {
-                return "Wrong IP Address!!!";
-            }
+            return string.Join("", descArr);
         }
+
+        private static string transWord(string p)
+        {
+            string res = "";
+            for (int j = 0; j < p.Length; j++)
+            {
+                if (j == 0)
+                    res += p[j].ToString().ToUpper();
+                else
+                    res += p[j].ToString().ToLower();
+            }
+            return res;
+        }
+
+        //private static string GetProtocal(string url)
+        //{
+        //    string [] strArr = url.Split(":".ToCharArray());
+        //    if(strArr.Length == 2)
+        //    {
+        //        return "IP Protocal is " + strArr[0];
+        //    }
+        //    else
+        //    {
+        //        return "Wrong IP Address!!!";
+        //    }
+        //}
     }
 }

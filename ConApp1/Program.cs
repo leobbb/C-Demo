@@ -50,6 +50,8 @@ namespace ConApp1
 
             // 字符串处理 plus
             // hello world lee --> HelloWorldLee 
+            // 字符串处理 
+            // hello worLD leE --> helloWorldLee
 
             Console.WriteLine("input a string, split by space ");
             string str = Console.ReadLine();
@@ -66,8 +68,13 @@ namespace ConApp1
             string[] descArr = new string[strArr.Length];
             for(int i=0 ; i< strArr.Length; i++)
             {
-                string word = transWord(strArr[i]);
-                descArr[i] = word;
+                if (i == 0)
+                    descArr[i] = strArr[i].ToLower();
+                else
+                {
+                    string word = transWord(strArr[i]);
+                    descArr[i] = word;
+                }
             }
             return string.Join("", descArr);
         }

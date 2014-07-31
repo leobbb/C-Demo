@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "job5", "job5\job5.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConApp", "ConApp\ConApp.csproj", "{BE2B5274-BCDE-4519-8F29-E84DECAD734E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConApp1", "ConApp1\ConApp1.csproj", "{49B98DE2-D5B9-466F-B849-62451913C068}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{BE2B5274-BCDE-4519-8F29-E84DECAD734E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE2B5274-BCDE-4519-8F29-E84DECAD734E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE2B5274-BCDE-4519-8F29-E84DECAD734E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49B98DE2-D5B9-466F-B849-62451913C068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49B98DE2-D5B9-466F-B849-62451913C068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49B98DE2-D5B9-466F-B849-62451913C068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49B98DE2-D5B9-466F-B849-62451913C068}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -32,18 +32,37 @@ namespace ConApp1
             // ***
             // **
             // *
+            //for (int i = 4; i >= 1; i-- )
+            //{
+            //    for (int j = 1; j <= i; j++)
+            //    {
+            //        Console.Write("*");
+            //    }
+            //    Console.Write("\n");
+            //}
 
-            for (int i = 4; i >= 1; i-- )
+            // 字符串处理
+
+            Console.WriteLine("input IP address:");
+            string url = Console.ReadLine();
+            string protocol = GetProtocal(url);
+            Console.WriteLine(protocol);
+
+            Console.ReadLine();
+
+        }
+
+        private static string GetProtocal(string url)
+        {
+            string [] strArr = url.Split(":".ToCharArray());
+            if(strArr.Length == 2)
             {
-                for (int j = 1; j <= i; j++)
-                {
-                    Console.Write("*");
-                }
-                Console.Write("\n");
+                return "IP Protocal is " + strArr[0];
             }
-
-                Console.ReadLine();
-
+            else
+            {
+                return "Wrong IP Address!!!";
+            }
         }
     }
 }

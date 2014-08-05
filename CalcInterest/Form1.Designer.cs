@@ -57,6 +57,7 @@
             this.txtMoney.Name = "txtMoney";
             this.txtMoney.Size = new System.Drawing.Size(100, 20);
             this.txtMoney.TabIndex = 1;
+            this.txtMoney.TextChanged += new System.EventHandler(this.txtMoney_TextChanged);
             // 
             // label2
             // 
@@ -73,6 +74,7 @@
             this.txtRate.Name = "txtRate";
             this.txtRate.Size = new System.Drawing.Size(100, 20);
             this.txtRate.TabIndex = 2;
+            this.txtRate.TextChanged += new System.EventHandler(this.txtRate_TextChanged);
             // 
             // label4
             // 
@@ -95,6 +97,7 @@
             this.lstYear.Name = "lstYear";
             this.lstYear.Size = new System.Drawing.Size(65, 43);
             this.lstYear.TabIndex = 3;
+            this.lstYear.SelectedValueChanged += new System.EventHandler(this.lstYear_SelectedValueChanged);
             // 
             // label5
             // 

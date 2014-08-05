@@ -43,8 +43,11 @@ namespace CalcInterest
         private void Form1_Load(object sender, EventArgs e)
         {
             txtMoney.Text = "10000";
+            Money = 10000;
             txtRate.Text = "2.25";
+            Rate = 2.25;
             lstYear.SelectedItem = "2年";
+            Time = 2;
             btnCalc.Focus();
             
         }
@@ -57,7 +60,7 @@ namespace CalcInterest
 
         private void sumShow(double sum)
         {
-            lblShow.Text = "本金为 " + txtMoney.Text + " 元\n" + "存期为 " + lstYear.SelectedItem + " \n";
+            lblShow.Text = "本金为 " + Money + " 元\n" + "存期为 " + Time + " 年\n";
             lblShow.Text += "本息和为 " + sum + " 元";
 
         }
@@ -65,27 +68,44 @@ namespace CalcInterest
         private double CalcInt()
         {
             double sum = 0;
+            sum = Money * Rate / 100 * Time;
+            sum += Money;
+            return sum;
+        }
+
+        private void txtMoney_TextChanged(object sender, EventArgs e)
+        {
+            Money = double.Parse(txtMoney.Text);
+        }
+
+        private void txtRate_TextChanged(object sender, EventArgs e)
+        {
+            Rate = double.Parse(txtRate.Text);
+        }
+
+        private void lstYear_SelectedValueChanged(object sender, EventArgs e)
+        {
             int time = 0;
             string str = (string)lstYear.SelectedItem;
             switch (str)
             {
-                case "1年" :
+                case "1年":
                     time = 1;
                     break;
-                case "2年" :
+                case "2年":
                     time = 2;
                     break;
                 case "3年":
                     time = 3;
                     break;
-                case "4年" :
+                case "4年":
                     time = 4;
                     break;
 
             }
-            sum = double.Parse(txtMoney.Text) * double.Parse(txtRate.Text) / 100 * time;
-            sum += double.Parse(txtMoney.Text);
-            return sum;
+            Time = time;
         }
+
+     
     }
 }

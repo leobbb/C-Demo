@@ -47,12 +47,24 @@ namespace WinForm1
             //lblShow.Text += "\n浮点型变量x的值为" + x;
 
             //测试关系运算符和逻辑运算符
-            int i = 25, j = 12;
-            bool k = (i != j);
-            string result = "i != j 的值为 " + k;
-            k = (i != j && i >= j + 20);
-            result += "\n i != j && i >= j + 20 的值为 " + k;
-            lblShow.Text = result;
+            //int i = 25, j = 12;
+            //bool k = (i != j);
+            //string result = "i != j 的值为 " + k;
+            //k = (i != j && i >= j + 20);
+            //result += "\n i != j && i >= j + 20 的值为 " + k;
+            //lblShow.Text = result;
+
+            //数组及其应用测试
+            int[] a = { 5, 1, 2, 4, 3 };
+            int[] b = new int[5];
+            Array.Copy(a, b, 5);
+            Array.Clear(a, 0, 5);
+            lblShow.Text = b[0] + " " + b[1] + " " + b[2] + " " + b[3] + " " + b[4] + "\n";
+            Array.Sort(b);
+            lblShow.Text += b[0] + " " + b[1] + " " + b[2] + " " + b[3] + " " + b[4] + "\n";
+            Array.Reverse(b);
+            lblShow.Text += b[0] + " " + b[1] + " " + b[2] + " " + b[3] + " " + b[4] + "\n";
+
 
         }
 

@@ -38,13 +38,22 @@ namespace WinForm1
             //lblShow.Text += "\n变量q的值为" + q;
 
             // 赋值运算符及隐式数据类型转换测试
-            int a, b = 5;
-            char c = '啊';
-            a = c;
-            float x = 42;
-            x /= b;
-            lblShow.Text = "整形变量a的值为" + a;
-            lblShow.Text += "\n浮点型变量x的值为" + x;
+            //int a, b = 5;
+            //char c = '啊';
+            //a = c;
+            //float x = 42;
+            //x /= b;
+            //lblShow.Text = "整形变量a的值为" + a;
+            //lblShow.Text += "\n浮点型变量x的值为" + x;
+
+            //测试关系运算符和逻辑运算符
+            int i = 25, j = 12;
+            bool k = (i != j);
+            string result = "i != j 的值为 " + k;
+            k = (i != j && i >= j + 20);
+            result += "\n i != j && i >= j + 20 的值为 " + k;
+            lblShow.Text = result;
+
         }
 
         private void lblShow_Move(object sender, EventArgs e)

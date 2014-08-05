@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_String", "Test_String\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcInterest", "CalcInterest\CalcInterest.csproj", "{081B2457-BFAD-43CE-9711-A1246C2BE57D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DayofWeek", "DayofWeek\DayofWeek.csproj", "{1E4EC242-BF20-41AA-8005-55F129641163}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortNumber", "SortNumber\SortNumber.csproj", "{5908D0E1-7552-414B-8871-67828558CC68}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,14 @@ Global
 		{081B2457-BFAD-43CE-9711-A1246C2BE57D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{081B2457-BFAD-43CE-9711-A1246C2BE57D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{081B2457-BFAD-43CE-9711-A1246C2BE57D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E4EC242-BF20-41AA-8005-55F129641163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E4EC242-BF20-41AA-8005-55F129641163}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E4EC242-BF20-41AA-8005-55F129641163}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E4EC242-BF20-41AA-8005-55F129641163}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5908D0E1-7552-414B-8871-67828558CC68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5908D0E1-7552-414B-8871-67828558CC68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5908D0E1-7552-414B-8871-67828558CC68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5908D0E1-7552-414B-8871-67828558CC68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Display", "Display\Display.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortNumber2", "SortNumber2\SortNumber2.csproj", "{8BB02941-9172-4E27-BAEA-8A7904B37D43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchHighestScore", "SearchHighestScore\SearchHighestScore.csproj", "{399DC5F7-FC68-4332-AA66-768D0F6B56B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{8BB02941-9172-4E27-BAEA-8A7904B37D43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BB02941-9172-4E27-BAEA-8A7904B37D43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BB02941-9172-4E27-BAEA-8A7904B37D43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{399DC5F7-FC68-4332-AA66-768D0F6B56B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{399DC5F7-FC68-4332-AA66-768D0F6B56B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{399DC5F7-FC68-4332-AA66-768D0F6B56B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{399DC5F7-FC68-4332-AA66-768D0F6B56B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

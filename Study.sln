@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CounterLowerChar", "Counter
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForeach", "TestForeach\TestForeach.csproj", "{AE120AB1-4D0A-4199-B36A-CE06645EC67B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Display", "Display\Display.csproj", "{A9B8AC2D-7EFF-4BA2-BDEA-A5883FD4BAC9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{AE120AB1-4D0A-4199-B36A-CE06645EC67B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE120AB1-4D0A-4199-B36A-CE06645EC67B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE120AB1-4D0A-4199-B36A-CE06645EC67B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9B8AC2D-7EFF-4BA2-BDEA-A5883FD4BAC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9B8AC2D-7EFF-4BA2-BDEA-A5883FD4BAC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9B8AC2D-7EFF-4BA2-BDEA-A5883FD4BAC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9B8AC2D-7EFF-4BA2-BDEA-A5883FD4BAC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -65,9 +65,8 @@
             this.lblShow.AutoSize = true;
             this.lblShow.Location = new System.Drawing.Point(49, 163);
             this.lblShow.Name = "lblShow";
-            this.lblShow.Size = new System.Drawing.Size(35, 13);
+            this.lblShow.Size = new System.Drawing.Size(0, 13);
             this.lblShow.TabIndex = 3;
-            this.lblShow.Text = "label2";
             // 
             // Form1
             // 
@@ -84,6 +83,7 @@
             this.PerformLayout();
 
         }
+
 
         #endregion
 

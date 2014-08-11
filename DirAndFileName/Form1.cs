@@ -18,14 +18,27 @@ namespace DirAndFileName
             InitializeComponent();
         }
 
+        // 声明委托类型
+        delegate void Func(string s1 ,out string s2,out string s3);
         private void btnOk_Click(object sender, EventArgs e)
         {
             Analyzer a = new Analyzer();
             string path = txtPath.Text.Trim();
             string dir, file;
-            a.SplitPath(path, out dir, out file);
+            // 实例化委托类型
+            Func f = a.SplitPath;
+            f(path, out dir, out file);
             txtDir.Text = dir;
             txtFN.Text = file;
+
+            //String[] testStr = new String[10];
+            //testStr[2] = "TestNoInitial";
+            //txtDir.Text = testStr[2];
+
+            //Analyzer[] testCla = new Analyzer[10];
+            //testCla[2] = new Analyzer() { Num = 5 };
+            //txtFN.Text = Convert.ToString(testCla[2].Num);
+
         }
     }
 }

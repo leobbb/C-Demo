@@ -7,6 +7,14 @@ namespace DirAndFileName
 {
     class Analyzer
     {
+        private int num;
+
+        internal int Num
+        {
+            get { return num; }
+            set { num = value; }
+        }
+
 
         internal void SplitPath(string path, out string dir, out string file)
         {

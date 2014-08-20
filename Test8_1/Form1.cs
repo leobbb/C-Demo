@@ -17,18 +17,18 @@ namespace Test8_1
             InitializeComponent();
         }
 
-        public delegate int Caculate(int x, int y);
+        public delegate void Caculate(int x, int y);
 
         public Caculate handler;
 
-        public int Product(int x, int y)
+        public void Product(int x, int y)
         {
-            return x * y;
+            lblShow.Text += "a 和 b 的乘积为：" + x * y;
         }
 
-        public int Average(int x, int y)
+        public void Average(int x, int y)
         {
-            return (x + y) / 2;
+            lblShow.Text += "a 和 b 的平均值为：" + (x + y) / 2;
         }
 
         private void btnCalc_Click(object sender, EventArgs e)
@@ -37,10 +37,9 @@ namespace Test8_1
             int b = Convert.ToInt32(txtNumb.Text);
 
             handler = new Caculate(Product);
-            lblShow.Text = "a 和 b 的乘积为：" + handler(a, b);
+            handler += new Caculate(Average);
 
-            handler = new Caculate(Average);
-            lblShow.Text += "\na 和 b 的平均值为：" + handler(a, b);
+            handler(a, b);
         }
 
 

@@ -22,5 +22,32 @@ namespace MyAccounting
             Application.Exit();
         }
 
+        private void tsmAddExp_Click(object sender, EventArgs e)
+        {
+            AddExpenditure addExpFrm = new AddExpenditure();
+            
+            addExpFrm.MinimizeBox = false;
+            addExpFrm.WindowState = FormWindowState.Maximized;
+            addExpFrm.MdiParent = this;
+            addExpFrm.Show();
+            tssMsg.Text = addExpFrm.Text;
+        }
+
+        private void tsmAddItems_Click(object sender, EventArgs e)
+        {
+            AddItems addItmFrm = new AddItems();
+            addItmFrm.MdiParent = this;
+            addItmFrm.Show();
+            tssMsg.Text = addItmFrm.Text;
+        }
+
+        private void tsmAbout_Click(object sender, EventArgs e)
+        {
+            About aboFrm = new About();
+            aboFrm.MdiParent = this;
+            aboFrm.Show();
+            tssMsg.Text = aboFrm.Text;
+        }
+
     }
 }

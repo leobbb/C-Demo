@@ -30,17 +30,17 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnPreview = new System.Windows.Forms.Button();
-            this.rdoIncome = new System.Windows.Forms.RadioButton();
-            this.rdoExpenditure = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cboCategory = new System.Windows.Forms.ComboBox();
-            this.rtxtMsg = new System.Windows.Forms.RichTextBox();
+            this.rdoExpenditure = new System.Windows.Forms.RadioButton();
+            this.rdoIncome = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnYes = new System.Windows.Forms.Button();
+            this.rtxtMsg = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -74,6 +74,32 @@
             this.tabPage1.Text = "收支项目信息";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnPreview
+            // 
+            this.btnPreview.Location = new System.Drawing.Point(123, 219);
+            this.btnPreview.Name = "btnPreview";
+            this.btnPreview.Size = new System.Drawing.Size(75, 23);
+            this.btnPreview.TabIndex = 1;
+            this.btnPreview.Text = "预览（&V）";
+            this.btnPreview.UseVisualStyleBackColor = true;
+            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(40, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "项目名称：";
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(149, 30);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(156, 20);
+            this.txtName.TabIndex = 1;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.cboCategory);
@@ -87,6 +113,35 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "所属类别";
             // 
+            // cboCategory
+            // 
+            this.cboCategory.FormattingEnabled = true;
+            this.cboCategory.Location = new System.Drawing.Point(120, 85);
+            this.cboCategory.Name = "cboCategory";
+            this.cboCategory.Size = new System.Drawing.Size(159, 21);
+            this.cboCategory.TabIndex = 3;
+            // 
+            // rdoExpenditure
+            // 
+            this.rdoExpenditure.AutoSize = true;
+            this.rdoExpenditure.Location = new System.Drawing.Point(172, 33);
+            this.rdoExpenditure.Name = "rdoExpenditure";
+            this.rdoExpenditure.Size = new System.Drawing.Size(49, 17);
+            this.rdoExpenditure.TabIndex = 2;
+            this.rdoExpenditure.Text = "支出";
+            this.rdoExpenditure.UseVisualStyleBackColor = true;
+            this.rdoExpenditure.CheckedChanged += new System.EventHandler(this.rdoExpenditure_CheckedChanged);
+            // 
+            // rdoIncome
+            // 
+            this.rdoIncome.AutoSize = true;
+            this.rdoIncome.Location = new System.Drawing.Point(84, 33);
+            this.rdoIncome.Name = "rdoIncome";
+            this.rdoIncome.Size = new System.Drawing.Size(49, 17);
+            this.rdoIncome.TabIndex = 1;
+            this.rdoIncome.Text = "收入";
+            this.rdoIncome.UseVisualStyleBackColor = true;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -95,22 +150,6 @@
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "类      别：";
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(149, 30);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(156, 20);
-            this.txtName.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "项目名称：";
             // 
             // tabPage2
             // 
@@ -124,53 +163,6 @@
             this.tabPage2.Text = "确认信息";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // btnPreview
-            // 
-            this.btnPreview.Location = new System.Drawing.Point(123, 219);
-            this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(75, 23);
-            this.btnPreview.TabIndex = 1;
-            this.btnPreview.Text = "预览（&V）";
-            this.btnPreview.UseVisualStyleBackColor = true;
-            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
-            // 
-            // rdoIncome
-            // 
-            this.rdoIncome.AutoSize = true;
-            this.rdoIncome.Location = new System.Drawing.Point(84, 33);
-            this.rdoIncome.Name = "rdoIncome";
-            this.rdoIncome.Size = new System.Drawing.Size(49, 17);
-            this.rdoIncome.TabIndex = 1;
-            this.rdoIncome.Text = "收入";
-            this.rdoIncome.UseVisualStyleBackColor = true;
-            // 
-            // rdoExpenditure
-            // 
-            this.rdoExpenditure.AutoSize = true;
-            this.rdoExpenditure.Location = new System.Drawing.Point(172, 33);
-            this.rdoExpenditure.Name = "rdoExpenditure";
-            this.rdoExpenditure.Size = new System.Drawing.Size(49, 17);
-            this.rdoExpenditure.TabIndex = 2;
-            this.rdoExpenditure.Text = "支出";
-            this.rdoExpenditure.UseVisualStyleBackColor = true;
-            this.rdoExpenditure.CheckedChanged += new System.EventHandler(this.rdoExpenditure_CheckedChanged);
-            // 
-            // cboCategory
-            // 
-            this.cboCategory.FormattingEnabled = true;
-            this.cboCategory.Location = new System.Drawing.Point(120, 85);
-            this.cboCategory.Name = "cboCategory";
-            this.cboCategory.Size = new System.Drawing.Size(159, 21);
-            this.cboCategory.TabIndex = 3;
-            // 
-            // rtxtMsg
-            // 
-            this.rtxtMsg.Location = new System.Drawing.Point(32, 33);
-            this.rtxtMsg.Name = "rtxtMsg";
-            this.rtxtMsg.Size = new System.Drawing.Size(304, 177);
-            this.rtxtMsg.TabIndex = 0;
-            this.rtxtMsg.Text = "";
-            // 
             // btnYes
             // 
             this.btnYes.Location = new System.Drawing.Point(144, 229);
@@ -179,6 +171,15 @@
             this.btnYes.TabIndex = 1;
             this.btnYes.Text = "确定（&Y）";
             this.btnYes.UseVisualStyleBackColor = true;
+            // 
+            // rtxtMsg
+            // 
+            this.rtxtMsg.Location = new System.Drawing.Point(32, 33);
+            this.rtxtMsg.MaxLength = 10000;
+            this.rtxtMsg.Name = "rtxtMsg";
+            this.rtxtMsg.Size = new System.Drawing.Size(304, 177);
+            this.rtxtMsg.TabIndex = 0;
+            this.rtxtMsg.Text = "";
             // 
             // AddItems
             // 

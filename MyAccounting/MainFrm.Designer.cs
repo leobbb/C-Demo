@@ -43,9 +43,9 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbAddExp = new System.Windows.Forms.ToolStripButton();
             this.tsbStatistics = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbAddItems = new System.Windows.Forms.ToolStripButton();
             this.tsbtsmUser = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tssStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssMsg = new System.Windows.Forms.ToolStripStatusLabel();
@@ -63,7 +63,7 @@
             this.HToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(651, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(740, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -82,7 +82,7 @@
             this.tsmExit.Name = "tsmExit";
             this.tsmExit.ShortcutKeyDisplayString = "";
             this.tsmExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
-            this.tsmExit.Size = new System.Drawing.Size(170, 22);
+            this.tsmExit.Size = new System.Drawing.Size(167, 22);
             this.tsmExit.Text = "退出（&X）";
             this.tsmExit.Click += new System.EventHandler(this.tsmExit_Click);
             // 
@@ -103,6 +103,7 @@
             this.tsmAddExp.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
             this.tsmAddExp.Size = new System.Drawing.Size(198, 22);
             this.tsmAddExp.Text = "添加收支（&P）";
+            this.tsmAddExp.Click += new System.EventHandler(this.tsmAddExp_Click);
             // 
             // tsmStatistics
             // 
@@ -128,6 +129,7 @@
             this.tsmAddItems.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.I)));
             this.tsmAddItems.Size = new System.Drawing.Size(214, 22);
             this.tsmAddItems.Text = "添加收支项目（&I）";
+            this.tsmAddItems.Click += new System.EventHandler(this.tsmAddItems_Click);
             // 
             // tsmUser
             // 
@@ -152,6 +154,7 @@
             this.tsmAbout.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.A)));
             this.tsmAbout.Size = new System.Drawing.Size(172, 22);
             this.tsmAbout.Text = "关于（&A）";
+            this.tsmAbout.Click += new System.EventHandler(this.tsmAbout_Click);
             // 
             // toolStrip1
             // 
@@ -163,7 +166,7 @@
             this.tsbtsmUser});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(651, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(740, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -176,6 +179,7 @@
             this.tsbAddExp.Size = new System.Drawing.Size(51, 22);
             this.tsbAddExp.Text = "AddExp";
             this.tsbAddExp.ToolTipText = "添加收支情况";
+            this.tsbAddExp.Click += new System.EventHandler(this.tsmAddExp_Click);
             // 
             // tsbStatistics
             // 
@@ -187,6 +191,11 @@
             this.tsbStatistics.Text = "Statis";
             this.tsbStatistics.ToolTipText = "收支统计和查询";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // tsbAddItems
             // 
             this.tsbAddItems.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -196,6 +205,7 @@
             this.tsbAddItems.Size = new System.Drawing.Size(62, 22);
             this.tsbAddItems.Text = "AddItems";
             this.tsbAddItems.ToolTipText = "添加收支项目";
+            this.tsbAddItems.Click += new System.EventHandler(this.tsmAddItems_Click);
             // 
             // tsbtsmUser
             // 
@@ -207,19 +217,14 @@
             this.tsbtsmUser.Text = "UserMan";
             this.tsbtsmUser.ToolTipText = "用户信息管理";
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tssStatus,
             this.tssMsg});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 433);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 525);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(651, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(740, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -240,12 +245,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 455);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(740, 547);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "个人理财";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

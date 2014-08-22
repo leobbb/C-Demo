@@ -44,6 +44,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddExpenditure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddExpenditure.Designer.cs">
+      <DependentUpon>AddExpenditure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddItems.Designer.cs">
+      <DependentUpon>AddItems.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -52,6 +70,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddExpenditure.resx">
+      <DependentUpon>AddExpenditure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddItems.resx">
+      <DependentUpon>AddItems.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -63,6 +90,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -76,6 +104,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anquan.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dollar.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yuan.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

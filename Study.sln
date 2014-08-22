@@ -75,6 +75,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test9-5", "Test9-5\Test9-5.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test9-7", "Test9-7\Test9-7.csproj", "{4D8B76C1-894D-4490-ACDD-F45A7124300B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontEdit", "FontEdit\FontEdit.csproj", "{8287F61D-5A99-4603-81D8-DAE517A76316}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -225,6 +227,10 @@ Global
 		{4D8B76C1-894D-4490-ACDD-F45A7124300B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D8B76C1-894D-4490-ACDD-F45A7124300B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D8B76C1-894D-4490-ACDD-F45A7124300B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8287F61D-5A99-4603-81D8-DAE517A76316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8287F61D-5A99-4603-81D8-DAE517A76316}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8287F61D-5A99-4603-81D8-DAE517A76316}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8287F61D-5A99-4603-81D8-DAE517A76316}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

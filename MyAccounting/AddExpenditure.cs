@@ -19,23 +19,28 @@ namespace MyAccounting
 
         private void rdoIncome_CheckedChanged(object sender, EventArgs e)
         {
-            cboCategory.Items.Clear();
-            if (rdoIncome.Checked == true)
+            CategoryChange(this.cboCategory,this.rdoIncome);
+        }
+
+        internal static void CategoryChange(ComboBox cbo,RadioButton rdo)
+        {
+            cbo.Items.Clear();
+            if (rdo.Checked == true)
             {
-                cboCategory.Items.Add("工作收入");
-                cboCategory.Items.Add("投资收益");
-                cboCategory.Items.Add("其他收入");
+                cbo.Items.Add("工作收入");
+                cbo.Items.Add("投资收益");
+                cbo.Items.Add("其他收入");
             }
             else
             {
-                cboCategory.Items.Add("生活消费");
-                cboCategory.Items.Add("固定资产");
-                cboCategory.Items.Add("休闲娱乐");
-                cboCategory.Items.Add("医疗药品");
-                cboCategory.Items.Add("教育培训");
-                cboCategory.Items.Add("其他支出");
+                cbo.Items.Add("生活消费");
+                cbo.Items.Add("固定资产");
+                cbo.Items.Add("休闲娱乐");
+                cbo.Items.Add("医疗药品");
+                cbo.Items.Add("教育培训");
+                cbo.Items.Add("其他支出");
             }
-            cboCategory.SelectedIndex = 0;
+            cbo.SelectedIndex = 0;
         }
 
         private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)

@@ -35,6 +35,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtPwd = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.lblShow = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -103,6 +104,14 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // lblShow
+            // 
+            this.lblShow.AutoSize = true;
+            this.lblShow.Location = new System.Drawing.Point(63, 190);
+            this.lblShow.Name = "lblShow";
+            this.lblShow.Size = new System.Drawing.Size(0, 13);
+            this.lblShow.TabIndex = 5;
+            // 
             // Login
             // 
             this.AcceptButton = this.btnLogin;
@@ -110,6 +119,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(409, 247);
+            this.Controls.Add(this.lblShow);
             this.Controls.Add(this.txtPwd);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.btnCancel);
@@ -137,6 +147,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtPwd;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblShow;
     }
 }
 

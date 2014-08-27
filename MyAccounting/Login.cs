@@ -18,15 +18,23 @@ namespace MyAccounting
             InitializeComponent();
         }
 
+        public static SqlConnection ConnectSql()
+        {
+            SqlConnection connSql;
+            string connString = "Data Source = (localdb)\\Projects; Initial Catalog = Financing; Integrated Security = True";
+            connSql = new SqlConnection(connString);
+            return connSql;
+        }
+
+        
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string userName = txtName.Text.Trim();
             string password = txtPwd.Text.Trim();
 
-            string connString = "Data Source = (localdb)\\Projects; Initial Catalog = Financing; Integrated Security = True";
-            
-            SqlConnection conn = new SqlConnection(connString);
+            SqlConnection conn;
+            conn = Login.ConnectSql();
 
             string sql = String.Format("select count(*) from [User] where UserName = '{0}' and Password = '{1}'", userName, password);
 

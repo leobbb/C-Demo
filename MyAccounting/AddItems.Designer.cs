@@ -41,6 +41,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnYes = new System.Windows.Forms.Button();
             this.rtxtMsg = new System.Windows.Forms.RichTextBox();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -62,6 +63,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnAdd);
             this.tabPage1.Controls.Add(this.btnPreview);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.txtName);
@@ -76,7 +78,7 @@
             // 
             // btnPreview
             // 
-            this.btnPreview.Location = new System.Drawing.Point(123, 219);
+            this.btnPreview.Location = new System.Drawing.Point(76, 219);
             this.btnPreview.Name = "btnPreview";
             this.btnPreview.Size = new System.Drawing.Size(75, 23);
             this.btnPreview.TabIndex = 1;
@@ -171,6 +173,7 @@
             this.btnYes.TabIndex = 1;
             this.btnYes.Text = "确定（&Y）";
             this.btnYes.UseVisualStyleBackColor = true;
+            this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
             // 
             // rtxtMsg
             // 
@@ -181,13 +184,25 @@
             this.rtxtMsg.TabIndex = 0;
             this.rtxtMsg.Text = "";
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(188, 219);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 4;
+            this.btnAdd.Text = "添加（&Y）";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnYes_Click);
+            // 
             // AddItems
             // 
+            this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 324);
             this.Controls.Add(this.tabControl1);
             this.Name = "AddItems";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AddItems";
             this.Load += new System.EventHandler(this.AddItems_Load);
             this.tabControl1.ResumeLayout(false);
@@ -215,5 +230,6 @@
         private System.Windows.Forms.RadioButton rdoIncome;
         private System.Windows.Forms.Button btnYes;
         private System.Windows.Forms.RichTextBox rtxtMsg;
+        private System.Windows.Forms.Button btnAdd;
     }
 }

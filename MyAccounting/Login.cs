@@ -53,14 +53,16 @@ namespace MyAccounting
                 {
                     MessageBox.Show("欢迎进入个人理财系统！", "登录成功", MessageBoxButtons.OK);
                     MainFrm mainForm = new MainFrm();
+
+                    // 类Login预定类MainFrm 的关闭窗口事件，当MainFrm关闭，Login窗口也关闭。
+                    mainForm.FormClosed += new FormClosedEventHandler(CloseMe);
                     mainForm.Show();
-                    this.Visible = false;
+                    this.Hide();
                 }
                 else 
                 {
                     txtPwd.Text = "";
                     MessageBox.Show("您输入的用户名或密码错误！", "登录失败", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-
                 }
 
             }
@@ -76,6 +78,13 @@ namespace MyAccounting
             }
         }
 
+        private void CloseMe(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
+
+
+
         private void Login_Load(object sender, EventArgs e)
         {
 
@@ -86,6 +95,12 @@ namespace MyAccounting
             txtName.Text = "";
             txtPwd.Text = "";
             txtName.Focus();
+        }
+
+        // 程序关闭是弹出一个窗口
+        private void Login_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MessageBox.Show("Good bye.", "", MessageBoxButtons.OK);
         }
     }
 }

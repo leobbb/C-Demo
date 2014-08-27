@@ -16,7 +16,7 @@ namespace MyAccounting
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AddItems());
+            Application.Run(new Login());
         }
     }
 }

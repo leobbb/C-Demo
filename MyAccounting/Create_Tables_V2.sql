@@ -98,9 +98,9 @@ go
 /* Table: Category                                              */
 /*==============================================================*/
 create table Category (
-   CId                  int                  not null,
+   CId                  int                  not null IDENTITY (1,1),
    CategoryName         varchar(30)          not null,
-   IsPayout             tinyint              not null,
+   IsPayout             BIT     DEFAULT((1))         not null,
    constraint PK_CATEGORY primary key nonclustered (CId)
 )
 go
@@ -109,11 +109,11 @@ go
 /* Table: Item                                                  */
 /*==============================================================*/
 create table Item (
-   ItemId               int                  not null,
+   ItemId               int                  not null IDENTITY(1,1),
    CId                  int                  not null,
    ItemName             varchar(30)          not null,
-   CategoryId           int                  not null,
-   constraint PK_ITEM primary key nonclustered (ItemId)
+   
+   constraint PK_ITEM primary key  nonclustered (ItemId)
 )
 go
 
@@ -121,7 +121,7 @@ go
 /* Index: lishu2_FK                                             */
 /*==============================================================*/
 create index lishu2_FK on Item (
-CId ASC
+CID ASC
 )
 go
 

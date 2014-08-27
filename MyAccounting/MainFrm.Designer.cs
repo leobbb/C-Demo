@@ -237,7 +237,7 @@
             // tssMsg
             // 
             this.tssMsg.Name = "tssMsg";
-            this.tssMsg.Size = new System.Drawing.Size(603, 17);
+            this.tssMsg.Size = new System.Drawing.Size(692, 17);
             this.tssMsg.Spring = true;
             this.tssMsg.Text = "请选择一个操作";
             // 

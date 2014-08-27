@@ -17,9 +17,10 @@ namespace MyAccounting
             InitializeComponent();
         }
 
+
         private void tsmExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void tsmAddExp_Click(object sender, EventArgs e)
@@ -48,6 +49,7 @@ namespace MyAccounting
             aboFrm.Show();
             tssMsg.Text = aboFrm.Text;
         }
+
 
     }
 }

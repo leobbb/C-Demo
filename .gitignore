@@ -155,3 +155,7 @@ $RECYCLE.BIN/
 # Mac desktop service store files
 .DS_Store
 /packages
+/MyAccounting/FinancingDataSet.xsc
+/MyAccounting/FinancingDataSet.Designer.cs
+/MyAccounting/FinancingDataSet.xsd
+/MyAccounting/FinancingDataSet.xss

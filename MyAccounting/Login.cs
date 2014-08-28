@@ -13,17 +13,21 @@ namespace MyAccounting
 {
     public partial class Login : Form
     {
+        public static readonly SqlConnection conn;
+        public static SqlCommand command;
+        public static SqlDataReader dataReader;
+
         public Login()
         {
             InitializeComponent();
         }
 
-        public static SqlConnection ConnectSql()
-        {
-            SqlConnection connSql;
+        static Login()
+        {           
             string connString = "Data Source = (localdb)\\Projects; Initial Catalog = Financing; Integrated Security = True";
-            connSql = new SqlConnection(connString);
-            return connSql;
+            Login.conn = new SqlConnection(connString);
+            Login.command = new SqlCommand();
+            Login.command.Connection = Login.conn;
         }
 
         
@@ -33,19 +37,17 @@ namespace MyAccounting
             string userName = txtName.Text.Trim();
             string password = txtPwd.Text.Trim();
 
-            SqlConnection conn;
-            conn = Login.ConnectSql();
-
             string sql = String.Format("select count(*) from [User] where UserName = '{0}' and Password = '{1}'", userName, password);
 
             try
             {
-                conn.Open();
+                Login.conn.Open();
                 //lblShow.Text = "数据库连接已经建立  " + conn.State.ToString() + "\n" + conn.ConnectionString;
-                SqlCommand command = new SqlCommand(sql, conn);
+
+                Login.command.CommandText = sql;
                 //lblShow.Text += "创建命令对象" + "\n" + command.CommandText;
                 
-                int num = (int) command.ExecuteScalar();
+                int num = (int) Login.command.ExecuteScalar();
                 lblShow.Text += "  已经返回结果集";
 
                 // int num = 0;
@@ -74,7 +76,7 @@ namespace MyAccounting
             }
             finally
             {
-                conn.Close();
+                Login.conn.Close();
             }
         }
 

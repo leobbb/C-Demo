@@ -13,9 +13,6 @@ namespace MyAccounting
 {
     public partial class AddItems : Form
     {
-        SqlConnection conn;
-        SqlCommand command;
-        SqlDataReader dataReader;
 
         public AddItems()
         {
@@ -24,51 +21,59 @@ namespace MyAccounting
 
         private void rdoExpenditure_CheckedChanged(object sender, EventArgs e)
         {
+            // 调用更新下拉列表的方法
+            AddItems.UpdateCategory(cboCategory,rdoExpenditure.Checked);
+        }
+
+        // 更新下拉列表的方法，第一个参数是需要更新的对象，第二个参数是显示的类别（收入或者支出）
+        public static void UpdateCategory(ComboBox cboCategory, bool isPayout)
+        { 
+               
             // 添加类别信息
             cboCategory.Items.Clear();
             cboCategory.Items.Add(new Category(0, "一级大类"));
-            string sql = "SELECT * FROM [Category] WHERE [IsPayout] = 1 ";
-            if (rdoIncome.Checked == true)
+            string sql = string.Empty;
+
+            // 判断需要更新的类别（支出为1，收入为0）
+            if(isPayout)    
+                sql = "SELECT * FROM [Category] WHERE [IsPayout] = 1";
+            else
                 sql = "SELECT * FROM [Category] WHERE [IsPayout] = 0";
+
+            Login.command.CommandText = sql;
+           
             try
             {
-                conn.Open();
-                // 设置 Command 对象要执行的SQL 语句
-                command.CommandText = sql;
-                // 创建 DataReader 对象
-                dataReader = command.ExecuteReader();
+                // 使用类 Login 里的静态成员 conn, command dataReader 
+                Login.conn.Close();
+                Login.conn.Open();
+                Login.dataReader = Login.command.ExecuteReader();
 
-                while (dataReader.Read())
+                while (Login.dataReader.Read())
                 {
                     // 通过索引号读取dataReader 对象中的第1列数据
-                    int cId = (int)dataReader[0];
+                    int cId = (int)Login.dataReader[0];
                     // 通过列的名称读取dataReader 对象中的数据
-                    string name = dataReader["CategoryName"].ToString().Trim();
+                    string name = Login.dataReader["CategoryName"].ToString().Trim();
                     // 像cboCategory 中添加对象
                     cboCategory.Items.Add(new Category(cId, name));
                 }
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "操作数据库出错", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                MessageBox.Show(ex.Message, "操作数据库出错", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             finally
             {
-                dataReader.Close();
-                conn.Close();
+                Login.dataReader.Close();
+                Login.conn.Close();
             }
             cboCategory.SelectedIndex = 0;
         }
 
+        
         private void AddItems_Load(object sender, EventArgs e)
         {
-            // 通过Login 类里的静态函数 ConnectSql 建立连接对象
-            conn = Login.ConnectSql();
-            
-            command = new SqlCommand();
-            command.Connection = conn;
-
             // 窗体加载后，单选按钮选择支出
             this.rdoExpenditure.Checked = true;
         }
@@ -124,31 +129,32 @@ namespace MyAccounting
                 return;
             }
 
-            string sql;
+            string sql = string.Empty;
             if (cId == 0)
             {
                 // 添加项目类别名称的 SQL 语句
                 sql = string.Format("INSERT INTO [Category](CategoryName,IsPayout)"
-                    + "VALUES('{0}',{1})", name, isPayout);
+                    + "VALUES(N'{0}',{1})", name, isPayout);
             }
             else
             {
                 // 添加项目名称的 SQL 语句
                 sql = string.Format("INSERT INTO [Item](ItemName, CId)"
-                    + "VALUES('{0}',{1})", name, cId);
+                    + "VALUES('N{0}',{1})", name, cId);
             }
 
             try
             {
-                conn.Open();
-                command.CommandText = sql;
-                int count = command.ExecuteNonQuery();
+                Login.conn.Open();
+                Login.command.CommandText = sql;
+                int count = Login.command.ExecuteNonQuery();
                 if (count > 0)
                 {
                     MessageBox.Show("添加类别/收支项成功", "添加成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtName.Text = "";
                     txtName.Focus();
                     tabControl1.SelectedTab = tabPage1;
+                    AddItems.UpdateCategory(this.cboCategory, (isPayout == 1));
                 }
                 else
                     MessageBox.Show("添加类别/收支项失败", "添加失败", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -159,7 +165,7 @@ namespace MyAccounting
             }
             finally
             {
-                conn.Close();
+                Login.conn.Close();
             }
         }
 

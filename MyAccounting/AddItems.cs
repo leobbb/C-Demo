@@ -116,6 +116,13 @@ namespace MyAccounting
         {
             // 项目的名称
             string name = txtName.Text.Trim();
+            if (name == string.Empty)
+            {
+                MessageBox.Show("请填写收支项目名称！", "信息不完整", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tabControl1.SelectedTab = tabPage1;
+                txtName.Focus();
+                return;
+            }
 
             // 类别的分类（收入或者支出，1 为支出）
             int isPayout = rdoExpenditure.Checked?1:0;

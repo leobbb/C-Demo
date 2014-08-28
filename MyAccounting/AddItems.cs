@@ -161,7 +161,9 @@ namespace MyAccounting
                     txtName.Text = "";
                     txtName.Focus();
                     tabControl1.SelectedTab = tabPage1;
-                    AddItems.UpdateCategory(this.cboCategory, (isPayout == 1));
+                    // 当添加的是项目类别名称的时候，更新类别列表
+                    if(cId == 0)
+                        AddItems.UpdateCategory(this.cboCategory, (isPayout == 1));
                 }
                 else
                     MessageBox.Show("添加类别/收支项失败", "添加失败", MessageBoxButtons.OK, MessageBoxIcon.Information);

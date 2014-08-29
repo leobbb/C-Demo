@@ -82,7 +82,7 @@
             this.tsmExit.Name = "tsmExit";
             this.tsmExit.ShortcutKeyDisplayString = "";
             this.tsmExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
-            this.tsmExit.Size = new System.Drawing.Size(167, 22);
+            this.tsmExit.Size = new System.Drawing.Size(170, 22);
             this.tsmExit.Text = "退出（&X）";
             this.tsmExit.Click += new System.EventHandler(this.tsmExit_Click);
             // 
@@ -216,6 +216,7 @@
             this.tsbtsmUser.Size = new System.Drawing.Size(58, 22);
             this.tsbtsmUser.Text = "UserMan";
             this.tsbtsmUser.ToolTipText = "用户信息管理";
+            this.tsbtsmUser.Click += new System.EventHandler(this.tsbtsmUser_Click);
             // 
             // statusStrip1
             // 

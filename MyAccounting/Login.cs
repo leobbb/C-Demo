@@ -35,22 +35,18 @@ namespace MyAccounting
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string userName = txtName.Text.Trim();
-            string password = txtPwd.Text.Trim();
-
-            string sql = String.Format("select count(*) from [User] where UserName = '{0}' and Password = '{1}'", userName, password);
+            int password = txtPwd.Text.GetHashCode();
+            
+            string sql = String.Format("select count(*) from [User] where [UserName] = N'{0}' and [Password] = {1}", userName, password);
 
             try
             {
                 Login.conn.Open();
-                //lblShow.Text = "数据库连接已经建立  " + conn.State.ToString() + "\n" + conn.ConnectionString;
-
                 Login.command.CommandText = sql;
-                //lblShow.Text += "创建命令对象" + "\n" + command.CommandText;
                 
                 int num = (int) Login.command.ExecuteScalar();
                 lblShow.Text += "  已经返回结果集";
 
-                // int num = 0;
                 if(num >0)
                 {
                     MessageBox.Show("欢迎进入个人理财系统！", "登录成功", MessageBoxButtons.OK);

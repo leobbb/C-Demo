@@ -50,6 +50,11 @@ namespace MyAccounting
             tssMsg.Text = aboFrm.Text;
         }
 
+        private void tsbtsmUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }

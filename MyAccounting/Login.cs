@@ -35,9 +35,9 @@ namespace MyAccounting
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string userName = txtName.Text.Trim();
-            int password = txtPwd.Text.GetHashCode();
+            string password = txtPwd.Text;
             
-            string sql = String.Format("select count(*) from [User] where [UserName] = N'{0}' and [Password] = {1}", userName, password);
+            string sql = String.Format("select count(*) from [User] where [UserName] = N'{0}' and [Password] = N'{1}'", userName, password);
 
             try
             {

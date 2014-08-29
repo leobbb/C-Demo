@@ -60,11 +60,17 @@ namespace MyAccounting
 
         private void Refresh_tabAddUser()
         {
-            // 无需要刷新的内容
+            // 设置按下Enter键时的操作
+            this.AcceptButton = tab2btnAdd;
+            this.CancelButton = tab2btnClear;
         }
 
         private void Refresh_tabInfo()
         {
+            // 设置按下Enter键时的操作
+            this.AcceptButton = null;
+            this.CancelButton = null;
+
             int sum = 0;
             string sql = "SELECT [UserName] FROM [User] ";
             Login.command.CommandText = sql;
@@ -74,6 +80,7 @@ namespace MyAccounting
                 // 防止在其他方法中调用是数据库连接已经出于打开状态
                 Login.conn.Close();
                 Login.conn.Open();
+                tssStatus.Text = "正在查询数据库";
                 Login.dataReader = Login.command.ExecuteReader();
 
                 while (Login.dataReader.Read())
@@ -82,7 +89,8 @@ namespace MyAccounting
                     ++sum;
                 }
                 tab1lblShow.Text = string.Format("系统共有用户 {0} 个：", sum);
-
+                tssDone.Text = "数据库查询成功";
+                tssStatus.Text = "就绪";
             }
             catch (Exception ex)
             {
@@ -108,6 +116,40 @@ namespace MyAccounting
             {
                 MessageBox.Show("输入的用户名重复，请重新输入", "输入错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+
+            string name = tab2Name.Text.Trim();
+            string pwd = tab2Pwd.Text;
+
+            string sql = string.Format("INSERT INTO [User]([UserName], [Password]) VALUES(N'{0}', N'{1}')", name, pwd);
+            Login.command.CommandText = sql;
+            try
+            {
+                Login.conn.Open();
+                tssStatus.Text = "正在添加用户信息... ";
+                // 执行输入插入操作，返回受影响的行数。
+                int sum = Login.command.ExecuteNonQuery();
+                if (sum == 1)
+                {
+                    MessageBox.Show("用户信息添加成功", "操作成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    tssDone.Text = "用户信息添加成功";
+                    tab2btnClear_Click(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("用户信息添加失败", "操作失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tssDone.Text = "用户信息添加失败";
+                    tab2NameOk = false;
+                }
+                tssStatus.Text = "就绪";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "数据库操作失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Login.conn.Close();
             }
 
         }
@@ -146,11 +188,6 @@ namespace MyAccounting
             }
         }
 
-        private void tab2Name_MouseClick(object sender, MouseEventArgs e)
-        {
-            tab2Name.ForeColor = Color.Black;
-        }
-
         private void tab2Name_Enter(object sender, EventArgs e)
         {
             tssDone.Text = "输入用户名";
@@ -161,8 +198,18 @@ namespace MyAccounting
             tssDone.Text = "输入密码";
         }
 
+        private void tab2btnClear_Click(object sender, EventArgs e)
+        {
+            tab2Name.Text = "";
+            tab2Name.Focus();
+            tab2NameOk = false;
+            tab2Pwd.Text = "";
+        }
 
-
+        private void tab2Name_TextChanged(object sender, EventArgs e)
+        {
+            tab2Name.ForeColor = Color.Black;
+        }
 
     }
 }

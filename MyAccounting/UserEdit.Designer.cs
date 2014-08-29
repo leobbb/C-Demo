@@ -49,6 +49,7 @@
             this.tab2Name = new System.Windows.Forms.TextBox();
             this.tab2Pwd = new System.Windows.Forms.TextBox();
             this.tab2btnAdd = new System.Windows.Forms.Button();
+            this.tab2btnClear = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -165,6 +166,7 @@
             // 
             // tabAddUser
             // 
+            this.tabAddUser.Controls.Add(this.tab2btnClear);
             this.tabAddUser.Controls.Add(this.tab2btnAdd);
             this.tabAddUser.Controls.Add(this.tab2Pwd);
             this.tabAddUser.Controls.Add(this.tab2Name);
@@ -224,7 +226,7 @@
             this.tab2Name.Name = "tab2Name";
             this.tab2Name.Size = new System.Drawing.Size(143, 20);
             this.tab2Name.TabIndex = 3;
-            this.tab2Name.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tab2Name_MouseClick);
+            this.tab2Name.TextChanged += new System.EventHandler(this.tab2Name_TextChanged);
             this.tab2Name.Enter += new System.EventHandler(this.tab2Name_Enter);
             this.tab2Name.Leave += new System.EventHandler(this.tab2Name_Leave);
             // 
@@ -241,13 +243,23 @@
             // 
             // tab2btnAdd
             // 
-            this.tab2btnAdd.Location = new System.Drawing.Point(166, 166);
+            this.tab2btnAdd.Location = new System.Drawing.Point(126, 166);
             this.tab2btnAdd.Name = "tab2btnAdd";
             this.tab2btnAdd.Size = new System.Drawing.Size(75, 23);
             this.tab2btnAdd.TabIndex = 4;
             this.tab2btnAdd.Text = "添加（&A）";
             this.tab2btnAdd.UseVisualStyleBackColor = true;
             this.tab2btnAdd.Click += new System.EventHandler(this.tab2btnAdd_Click);
+            // 
+            // tab2btnClear
+            // 
+            this.tab2btnClear.Location = new System.Drawing.Point(251, 166);
+            this.tab2btnClear.Name = "tab2btnClear";
+            this.tab2btnClear.Size = new System.Drawing.Size(75, 23);
+            this.tab2btnClear.TabIndex = 5;
+            this.tab2btnClear.Text = "清空";
+            this.tab2btnClear.UseVisualStyleBackColor = true;
+            this.tab2btnClear.Click += new System.EventHandler(this.tab2btnClear_Click);
             // 
             // UserEdit
             // 
@@ -299,6 +311,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lable1;
+        private System.Windows.Forms.Button tab2btnClear;
 
     }
 }

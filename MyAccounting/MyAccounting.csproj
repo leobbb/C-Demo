@@ -98,9 +98,6 @@
     <Compile Include="UserEdit.Designer.cs">
       <DependentUpon>UserEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserEdit.part1.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>

@@ -53,11 +53,12 @@
             this.tab3lblShow = new System.Windows.Forms.Label();
             this.tab3btnSearch = new System.Windows.Forms.Button();
             this.tab3OldName = new System.Windows.Forms.TextBox();
+            this.tab3btnBack = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.tab3NewPwd = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tab3btnClear = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tab3btnAlter = new System.Windows.Forms.Button();
             this.tab3NewName = new System.Windows.Forms.TextBox();
@@ -281,6 +282,7 @@
             this.tabAlter.Controls.Add(this.tab3lblShow);
             this.tabAlter.Controls.Add(this.tab3btnSearch);
             this.tabAlter.Controls.Add(this.tab3OldName);
+            this.tabAlter.Controls.Add(this.tab3btnBack);
             this.tabAlter.Controls.Add(this.label5);
             this.tabAlter.Controls.Add(this.panel1);
             this.tabAlter.Location = new System.Drawing.Point(4, 22);
@@ -290,19 +292,18 @@
             this.tabAlter.TabIndex = 2;
             this.tabAlter.Text = "修改用户信息";
             this.tabAlter.UseVisualStyleBackColor = true;
-            this.tabAlter.Click += new System.EventHandler(this.tabAlter_Click);
             // 
             // tab3lblShow
             // 
             this.tab3lblShow.AutoSize = true;
-            this.tab3lblShow.Location = new System.Drawing.Point(122, 75);
+            this.tab3lblShow.Location = new System.Drawing.Point(123, 97);
             this.tab3lblShow.Name = "tab3lblShow";
             this.tab3lblShow.Size = new System.Drawing.Size(0, 13);
             this.tab3lblShow.TabIndex = 11;
             // 
             // tab3btnSearch
             // 
-            this.tab3btnSearch.Location = new System.Drawing.Point(295, 65);
+            this.tab3btnSearch.Location = new System.Drawing.Point(214, 65);
             this.tab3btnSearch.Name = "tab3btnSearch";
             this.tab3btnSearch.Size = new System.Drawing.Size(75, 23);
             this.tab3btnSearch.TabIndex = 12;
@@ -317,6 +318,17 @@
             this.tab3OldName.Name = "tab3OldName";
             this.tab3OldName.Size = new System.Drawing.Size(143, 26);
             this.tab3OldName.TabIndex = 11;
+            this.tab3OldName.TextChanged += new System.EventHandler(this.tab3OldName_TextChanged);
+            // 
+            // tab3btnBack
+            // 
+            this.tab3btnBack.Location = new System.Drawing.Point(320, 65);
+            this.tab3btnBack.Name = "tab3btnBack";
+            this.tab3btnBack.Size = new System.Drawing.Size(75, 23);
+            this.tab3btnBack.TabIndex = 10;
+            this.tab3btnBack.Text = "返回";
+            this.tab3btnBack.UseVisualStyleBackColor = true;
+            this.tab3btnBack.Click += new System.EventHandler(this.tab3btnBack_Click);
             // 
             // label5
             // 
@@ -330,22 +342,32 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.tab3NewPwd);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.tab3btnClear);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.tab3btnAlter);
             this.panel1.Controls.Add(this.tab3NewName);
-            this.panel1.Location = new System.Drawing.Point(64, 107);
+            this.panel1.Location = new System.Drawing.Point(8, 113);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(318, 159);
+            this.panel1.Size = new System.Drawing.Size(429, 176);
             this.panel1.TabIndex = 13;
-            this.panel1.Click += new System.EventHandler(this.tabAlter_Click);
+            this.panel1.VisibleChanged += new System.EventHandler(this.panel1_VisibleChanged);
+            this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(79, 150);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(295, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "提示：输入需要修改的信息，不修改的信息直接留空。";
             // 
             // tab3NewPwd
             // 
             this.tab3NewPwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tab3NewPwd.Location = new System.Drawing.Point(118, 54);
+            this.tab3NewPwd.Location = new System.Drawing.Point(189, 56);
             this.tab3NewPwd.MaxLength = 50;
             this.tab3NewPwd.Name = "tab3NewPwd";
             this.tab3NewPwd.Size = new System.Drawing.Size(143, 26);
@@ -357,26 +379,17 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(44, 20);
+            this.label4.Location = new System.Drawing.Point(115, 22);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 18);
             this.label4.TabIndex = 7;
             this.label4.Text = "用户名：";
             // 
-            // tab3btnClear
-            // 
-            this.tab3btnClear.Location = new System.Drawing.Point(186, 114);
-            this.tab3btnClear.Name = "tab3btnClear";
-            this.tab3btnClear.Size = new System.Drawing.Size(75, 23);
-            this.tab3btnClear.TabIndex = 10;
-            this.tab3btnClear.Text = "清空";
-            this.tab3btnClear.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(44, 58);
+            this.label1.Location = new System.Drawing.Point(115, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 18);
             this.label1.TabIndex = 9;
@@ -384,22 +397,24 @@
             // 
             // tab3btnAlter
             // 
-            this.tab3btnAlter.Location = new System.Drawing.Point(61, 114);
+            this.tab3btnAlter.Location = new System.Drawing.Point(189, 109);
             this.tab3btnAlter.Name = "tab3btnAlter";
             this.tab3btnAlter.Size = new System.Drawing.Size(75, 23);
             this.tab3btnAlter.TabIndex = 8;
             this.tab3btnAlter.Text = "确认（&Y）";
             this.tab3btnAlter.UseVisualStyleBackColor = true;
+            this.tab3btnAlter.Click += new System.EventHandler(this.tab3btnAlter_Click);
             // 
             // tab3NewName
             // 
             this.tab3NewName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tab3NewName.Location = new System.Drawing.Point(118, 16);
+            this.tab3NewName.Location = new System.Drawing.Point(189, 18);
             this.tab3NewName.MaxLength = 50;
             this.tab3NewName.Name = "tab3NewName";
             this.tab3NewName.Size = new System.Drawing.Size(143, 26);
             this.tab3NewName.TabIndex = 4;
             this.tab3NewName.TextChanged += new System.EventHandler(this.tab3NewName_TextChanged);
+            this.tab3NewName.Leave += new System.EventHandler(this.tab3NewName_Leave);
             // 
             // UserEdit
             // 
@@ -456,7 +471,7 @@
         private System.Windows.Forms.Label lable1;
         private System.Windows.Forms.Button tab2btnClear;
         private System.Windows.Forms.TextBox tab1txtShow;
-        private System.Windows.Forms.Button tab3btnClear;
+        private System.Windows.Forms.Button tab3btnBack;
         private System.Windows.Forms.Button tab3btnAlter;
         private System.Windows.Forms.TextBox tab3NewPwd;
         private System.Windows.Forms.TextBox tab3NewName;
@@ -467,6 +482,7 @@
         private System.Windows.Forms.Button tab3btnSearch;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label tab3lblShow;
+        private System.Windows.Forms.Label label6;
 
     }
 }

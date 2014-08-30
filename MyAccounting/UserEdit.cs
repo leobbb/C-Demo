@@ -256,6 +256,8 @@ namespace MyAccounting
 
         private void Refresh_tabAlter()
         {
+            if(tab3btnSearch.Enabled)
+                panel1.Visible = false;
             // 如果数据库信息已经修改，则使文本框可编辑。
             if (infoUpdate)
             {
@@ -263,6 +265,11 @@ namespace MyAccounting
                 tab3btnSearch.Enabled = true;
             }
 
+        }
+
+        private void tab3OldName_TextChanged(object sender, EventArgs e)
+        {
+            tab3OldName.ForeColor = Color.Black;
         }
 
         private void tab3btnSearch_Click(object sender, EventArgs e)
@@ -289,6 +296,7 @@ namespace MyAccounting
                     tab3lblShow.Text = "请输入新的用户名或者密码";
                     tab3btnSearch.Enabled = false;
                     tssDone.Text = "已查询到用户信息";
+                    panel1.Visible = true;
                     tab3NewName.Focus();
                 }
                 else
@@ -314,19 +322,36 @@ namespace MyAccounting
                 Login.conn.Close();
             }
         }
-
-
+        private void tab3btnBack_Click(object sender, EventArgs e)
+        {
+            tssDone.Text = tabAlter.Text;
+            tssStatus.Text = "就绪";
+            tab3lblShow.Text = "";
+            panel1.Visible = false;
+            tab3OldName.Focus();
+            tab3OldName.ReadOnly = false;
+            tab3btnSearch.Enabled = true;
+        }
         bool tab3NameOk = false;
+
+        private void panel1_VisibleChanged(object sender, EventArgs e)
+        {
+            tab3NameOk = false;
+            tab3NewName.Text = "";
+            tab3NewPwd.Text = "";
+        }
       
 
         private void tab3NewName_TextChanged(object sender, EventArgs e)
         {
             tab3NewName.ForeColor = Color.Black;
+            tab3NameOk = false;
         }
 
-        private void tabAlter_Click(object sender, EventArgs e)
+        private void panel1_Click(object sender, EventArgs e)
         {
             tab3btnAlter.Focus();
+            tssStatus.Text = "就绪";
         }
 
         private void tab3NewName_Leave(object sender, EventArgs e)
@@ -335,6 +360,84 @@ namespace MyAccounting
                 return;
             CheckName(tab3NewName, ref tab3NameOk);
         }
+
+        private void tab3btnAlter_Click(object sender, EventArgs e)
+        {
+            if (tab3NewName.Text.Trim() == string.Empty && tab3NewPwd.Text == string.Empty)
+            {
+                MessageBox.Show("不能全为空\n请输入用户名或者密码", "输入出错", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tab3NewName.Focus();
+                return;
+            }
+            
+            string oldName = tab3OldName.Text.Trim();
+            string newName = tab3NewName.Text.Trim();
+            string pwd = tab3NewPwd.Text;
+
+            string sql = string.Empty;
+            if (newName == string.Empty)
+            {
+                // 用户名为空，则只修改密码。
+                sql = string.Format("UPDATE [User] SET [Password] = N'{0}' WHERE [Username] = N'{1}' ", pwd, oldName);
+            }
+            else if (tab3NameOk == false)
+            {
+                MessageBox.Show("用户名不可用", "输入出错", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (pwd == string.Empty)
+            {
+                // 如果密码为空，则只修改用户名。
+                sql = string.Format("UPDATE [User] SET [Username] = N'{0}' WHERE [Username] = N'{1}' ", newName, oldName);
+            }
+            else
+            {
+                // 如果都不为空，则同时修改用户名和密码。
+                sql = string.Format("UPDATE [User] SET [Username] = N'{0}',[Password] = N'{1}' WHERE [Username] = N'{2}'",
+                    newName, pwd, oldName);
+            }
+
+            Login.command.CommandText = sql;
+            try
+            {
+                Login.conn.Open();
+                tssStatus.Text = "正在处理请求... ";
+                int sum = Login.command.ExecuteNonQuery();
+
+                if (sum == 1)
+                {
+                    MessageBox.Show("恭喜，信息修改成功。", "操作成功", MessageBoxButtons.OK);
+                    //tab3NewName.Text = "";
+                    //tab3NewPwd.Text = "";
+                    panel1.Visible = false;
+                    infoUpdate = true;
+                    tssDone.Text = "信息修改成功";
+                    tab3lblShow.Text = "";
+                    tab3OldName.ReadOnly = false;
+                    tab3OldName.Focus();
+                    tab3btnSearch.Enabled = true;
+                    
+                }
+                else
+                {
+                    MessageBox.Show("信息修改失败", "操作失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tab3NewName.Focus();
+                    tssDone.Text = "信息修改失败";
+                }
+                tssStatus.Text = "就绪";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "数据库操作错误", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            }
+            finally
+            {
+                Login.conn.Close();
+            }
+        }
+
+
+
 
     }
 }

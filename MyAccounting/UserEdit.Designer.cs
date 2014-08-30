@@ -36,20 +36,21 @@
             this.tsbAlter = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tssStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tab1lblShow = new System.Windows.Forms.Label();
             this.tssDone = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tab1lblShow = new System.Windows.Forms.Label();
             this.tab1lsbShow = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabInfo = new System.Windows.Forms.TabPage();
             this.tabAddUser = new System.Windows.Forms.TabPage();
-            this.tabAlter = new System.Windows.Forms.TabPage();
-            this.lable1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tab2Name = new System.Windows.Forms.TextBox();
-            this.tab2Pwd = new System.Windows.Forms.TextBox();
-            this.tab2btnAdd = new System.Windows.Forms.Button();
             this.tab2btnClear = new System.Windows.Forms.Button();
+            this.tab2btnAdd = new System.Windows.Forms.Button();
+            this.tab2Pwd = new System.Windows.Forms.TextBox();
+            this.tab2Name = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lable1 = new System.Windows.Forms.Label();
+            this.tabAlter = new System.Windows.Forms.TabPage();
+            this.tab1txtShow = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -117,6 +118,12 @@
             this.tssStatus.Size = new System.Drawing.Size(33, 17);
             this.tssStatus.Text = "就绪";
             // 
+            // tssDone
+            // 
+            this.tssDone.Name = "tssDone";
+            this.tssDone.Size = new System.Drawing.Size(405, 17);
+            this.tssDone.Spring = true;
+            // 
             // tab1lblShow
             // 
             this.tab1lblShow.AutoSize = true;
@@ -125,12 +132,6 @@
             this.tab1lblShow.Size = new System.Drawing.Size(35, 13);
             this.tab1lblShow.TabIndex = 0;
             this.tab1lblShow.Text = "label1";
-            // 
-            // tssDone
-            // 
-            this.tssDone.Name = "tssDone";
-            this.tssDone.Size = new System.Drawing.Size(405, 17);
-            this.tssDone.Spring = true;
             // 
             // tab1lsbShow
             // 
@@ -154,6 +155,7 @@
             // 
             // tabInfo
             // 
+            this.tabInfo.Controls.Add(this.tab1txtShow);
             this.tabInfo.Controls.Add(this.tab1lsbShow);
             this.tabInfo.Controls.Add(this.tab1lblShow);
             this.tabInfo.Location = new System.Drawing.Point(4, 22);
@@ -181,6 +183,77 @@
             this.tabAddUser.Text = "添加用户";
             this.tabAddUser.UseVisualStyleBackColor = true;
             // 
+            // tab2btnClear
+            // 
+            this.tab2btnClear.Location = new System.Drawing.Point(251, 166);
+            this.tab2btnClear.Name = "tab2btnClear";
+            this.tab2btnClear.Size = new System.Drawing.Size(75, 23);
+            this.tab2btnClear.TabIndex = 3;
+            this.tab2btnClear.Text = "清空";
+            this.tab2btnClear.UseVisualStyleBackColor = true;
+            this.tab2btnClear.Click += new System.EventHandler(this.tab2btnClear_Click);
+            // 
+            // tab2btnAdd
+            // 
+            this.tab2btnAdd.Location = new System.Drawing.Point(126, 166);
+            this.tab2btnAdd.Name = "tab2btnAdd";
+            this.tab2btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.tab2btnAdd.TabIndex = 2;
+            this.tab2btnAdd.Text = "添加（&A）";
+            this.tab2btnAdd.UseVisualStyleBackColor = true;
+            this.tab2btnAdd.Click += new System.EventHandler(this.tab2btnAdd_Click);
+            // 
+            // tab2Pwd
+            // 
+            this.tab2Pwd.Location = new System.Drawing.Point(166, 115);
+            this.tab2Pwd.MaxLength = 50;
+            this.tab2Pwd.Name = "tab2Pwd";
+            this.tab2Pwd.Size = new System.Drawing.Size(143, 20);
+            this.tab2Pwd.TabIndex = 1;
+            this.tab2Pwd.UseSystemPasswordChar = true;
+            this.tab2Pwd.WordWrap = false;
+            // 
+            // tab2Name
+            // 
+            this.tab2Name.Location = new System.Drawing.Point(166, 77);
+            this.tab2Name.MaxLength = 50;
+            this.tab2Name.Name = "tab2Name";
+            this.tab2Name.Size = new System.Drawing.Size(143, 20);
+            this.tab2Name.TabIndex = 0;
+            this.tab2Name.TextChanged += new System.EventHandler(this.tab2Name_TextChanged);
+            this.tab2Name.Leave += new System.EventHandler(this.tab2Name_Leave);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Enabled = false;
+            this.label3.Location = new System.Drawing.Point(108, 118);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "密码：";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Enabled = false;
+            this.label2.Location = new System.Drawing.Point(108, 80);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "用户名：";
+            // 
+            // lable1
+            // 
+            this.lable1.AutoSize = true;
+            this.lable1.Enabled = false;
+            this.lable1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lable1.Location = new System.Drawing.Point(107, 23);
+            this.lable1.Name = "lable1";
+            this.lable1.Size = new System.Drawing.Size(219, 24);
+            this.lable1.TabIndex = 0;
+            this.lable1.Text = "请分别输入用户名和密码";
+            // 
             // tabAlter
             // 
             this.tabAlter.Location = new System.Drawing.Point(4, 22);
@@ -191,75 +264,16 @@
             this.tabAlter.Text = "修改用户信息";
             this.tabAlter.UseVisualStyleBackColor = true;
             // 
-            // lable1
+            // tab1txtShow
             // 
-            this.lable1.AutoSize = true;
-            this.lable1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lable1.Location = new System.Drawing.Point(107, 23);
-            this.lable1.Name = "lable1";
-            this.lable1.Size = new System.Drawing.Size(219, 24);
-            this.lable1.TabIndex = 0;
-            this.lable1.Text = "请分别输入用户名和密码";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(108, 80);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "用户名：";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(108, 118);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "密码：";
-            // 
-            // tab2Name
-            // 
-            this.tab2Name.Location = new System.Drawing.Point(166, 77);
-            this.tab2Name.MaxLength = 50;
-            this.tab2Name.Name = "tab2Name";
-            this.tab2Name.Size = new System.Drawing.Size(143, 20);
-            this.tab2Name.TabIndex = 3;
-            this.tab2Name.TextChanged += new System.EventHandler(this.tab2Name_TextChanged);
-            this.tab2Name.Enter += new System.EventHandler(this.tab2Name_Enter);
-            this.tab2Name.Leave += new System.EventHandler(this.tab2Name_Leave);
-            // 
-            // tab2Pwd
-            // 
-            this.tab2Pwd.Location = new System.Drawing.Point(166, 115);
-            this.tab2Pwd.MaxLength = 50;
-            this.tab2Pwd.Name = "tab2Pwd";
-            this.tab2Pwd.Size = new System.Drawing.Size(143, 20);
-            this.tab2Pwd.TabIndex = 3;
-            this.tab2Pwd.UseSystemPasswordChar = true;
-            this.tab2Pwd.WordWrap = false;
-            this.tab2Pwd.Enter += new System.EventHandler(this.tab2Pwd_Enter);
-            // 
-            // tab2btnAdd
-            // 
-            this.tab2btnAdd.Location = new System.Drawing.Point(126, 166);
-            this.tab2btnAdd.Name = "tab2btnAdd";
-            this.tab2btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.tab2btnAdd.TabIndex = 4;
-            this.tab2btnAdd.Text = "添加（&A）";
-            this.tab2btnAdd.UseVisualStyleBackColor = true;
-            this.tab2btnAdd.Click += new System.EventHandler(this.tab2btnAdd_Click);
-            // 
-            // tab2btnClear
-            // 
-            this.tab2btnClear.Location = new System.Drawing.Point(251, 166);
-            this.tab2btnClear.Name = "tab2btnClear";
-            this.tab2btnClear.Size = new System.Drawing.Size(75, 23);
-            this.tab2btnClear.TabIndex = 5;
-            this.tab2btnClear.Text = "清空";
-            this.tab2btnClear.UseVisualStyleBackColor = true;
-            this.tab2btnClear.Click += new System.EventHandler(this.tab2btnClear_Click);
+            this.tab1txtShow.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tab1txtShow.Enabled = false;
+            this.tab1txtShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tab1txtShow.Location = new System.Drawing.Point(187, 21);
+            this.tab1txtShow.Name = "tab1txtShow";
+            this.tab1txtShow.Size = new System.Drawing.Size(100, 16);
+            this.tab1txtShow.TabIndex = 2;
+            this.tab1txtShow.Text = "15451";
             // 
             // UserEdit
             // 
@@ -312,6 +326,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lable1;
         private System.Windows.Forms.Button tab2btnClear;
+        private System.Windows.Forms.TextBox tab1txtShow;
 
     }
 }

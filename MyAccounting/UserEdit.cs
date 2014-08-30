@@ -19,10 +19,15 @@ namespace MyAccounting
 
         // 用于表示用户名是否可用
         bool tab2NameOk = false;
+        // 信息是否需要更新
+        bool infoUpdate = false;
+        // 第一次加载时进行刷新
+        bool firstLoad = true;
 
         private void UserEdit_Load(object sender, EventArgs e)
         {
             tsbInfo.Checked = true;
+            Refresh_tabInfo();
         }
 
 
@@ -55,7 +60,7 @@ namespace MyAccounting
 
         private void Refresh_tabAlter()
         {
-            throw new NotImplementedException();
+
         }
 
         private void Refresh_tabAddUser()
@@ -63,6 +68,7 @@ namespace MyAccounting
             // 设置按下Enter键时的操作
             this.AcceptButton = tab2btnAdd;
             this.CancelButton = tab2btnClear;
+            tssDone.Text = "添加用户";
         }
 
         private void Refresh_tabInfo()
@@ -70,7 +76,9 @@ namespace MyAccounting
             // 设置按下Enter键时的操作
             this.AcceptButton = null;
             this.CancelButton = null;
-
+            tssDone.Text = "浏览用户信息";
+            if (!(firstLoad || infoUpdate))
+                return;
             int sum = 0;
             string sql = "SELECT [UserName] FROM [User] ";
             Login.command.CommandText = sql;
@@ -91,6 +99,8 @@ namespace MyAccounting
                 tab1lblShow.Text = string.Format("系统共有用户 {0} 个：", sum);
                 tssDone.Text = "数据库查询成功";
                 tssStatus.Text = "就绪";
+                firstLoad = false;
+                infoUpdate = false;
             }
             catch (Exception ex)
             {
@@ -156,6 +166,8 @@ namespace MyAccounting
 
         private void tab2Name_Leave(object sender, EventArgs e)
         {
+            if (tab2Name.Text.Trim() == string.Empty)
+                return;
             string sql = string.Format("SELECT COUNT(*) FROM [User] WHERE [UserName] = N'{0}'",
                 tab2Name.Text.Trim());
             Login.command.CommandText = sql;
@@ -188,15 +200,15 @@ namespace MyAccounting
             }
         }
 
-        private void tab2Name_Enter(object sender, EventArgs e)
-        {
-            tssDone.Text = "输入用户名";
-        }
+        //private void tab2Name_Enter(object sender, EventArgs e)
+        //{
+        //    tssDone.Text = "输入用户名";
+        //}
 
-        private void tab2Pwd_Enter(object sender, EventArgs e)
-        {
-            tssDone.Text = "输入密码";
-        }
+        //private void tab2Pwd_Enter(object sender, EventArgs e)
+        //{
+        //    tssDone.Text = "输入密码";
+        //}
 
         private void tab2btnClear_Click(object sender, EventArgs e)
         {

@@ -40,6 +40,7 @@ namespace MyAccounting
             
         }
 
+        // 控制每页的显示
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             // 在状态栏显示当前选项卡的内容
@@ -58,18 +59,9 @@ namespace MyAccounting
             }
         }
 
-        private void Refresh_tabAlter()
-        {
 
-        }
 
-        private void Refresh_tabAddUser()
-        {
-            // 设置按下Enter键时的操作
-            this.AcceptButton = tab2btnAdd;
-            this.CancelButton = tab2btnClear;
-        }
-
+        #region tab1 相关代码区域
         private void Refresh_tabInfo()
         {
             // 设置按下Enter键时的操作
@@ -110,6 +102,17 @@ namespace MyAccounting
                 Login.dataReader.Close();
                 Login.conn.Close();
             }
+        }
+
+        #endregion 
+
+        #region tab2 相关代码
+
+        private void Refresh_tabAddUser()
+        {
+            // 设置按下Enter键时的操作
+            this.AcceptButton = tab2btnAdd;
+            this.CancelButton = tab2btnClear;
         }
 
         private void tab2btnAdd_Click(object sender, EventArgs e)
@@ -169,6 +172,13 @@ namespace MyAccounting
         {
             if (tab2Name.Text.Trim() == string.Empty)
                 return;
+            CheckName(tab2Name,ref tab2NameOk);
+
+        }
+
+        private void CheckName(TextBox tab2Name, ref bool nameOk)
+        {
+
             string sql = string.Format("SELECT COUNT(*) FROM [User] WHERE [UserName] = N'{0}'",
                 tab2Name.Text.Trim());
             Login.command.CommandText = sql;
@@ -177,19 +187,20 @@ namespace MyAccounting
                 Login.conn.Open();
                 tssStatus.Text = "正在检索用户名是否可用...";
                 int sum = (int)Login.command.ExecuteScalar();
+                tssStatus.Text = "就绪";
                 if (sum == 0)
                 {
                     tssDone.Text = "用户名可用";
-                    tab2NameOk = true;
+                    nameOk = true;
                 }
                 else
                 {
-                    tab2NameOk = false;
+                    
                     tssDone.Text = "用户名不可用，请重新输入";
                     tab2Name.ForeColor = Color.Red;
                     tab2Name.Focus();
+                    nameOk = false;
                 }
-                tssStatus.Text = "就绪";
             }
             catch (Exception ex)
             {
@@ -223,15 +234,106 @@ namespace MyAccounting
         {
             tab2Name.ForeColor = Color.Black;
         }
+        private void tabAddUser_Click(object sender, EventArgs e)
+        {
+            tab2btnAdd.Focus();
+        }
 
+        // 非必需代码
         private void tabAddUser_MouseDown(object sender, MouseEventArgs e)
         {
             this.tabAddUser.Cursor = System.Windows.Forms.Cursors.IBeam;
         }
-
+        // 非必需代码
         private void tabAddUser_MouseUp(object sender, MouseEventArgs e)
         {
             this.tabAddUser.Cursor = System.Windows.Forms.Cursors.Default;
+        }
+
+        #endregion
+
+        
+
+        private void Refresh_tabAlter()
+        {
+            // 如果数据库信息已经修改，则使文本框可编辑。
+            if (infoUpdate)
+            {
+                tab3OldName.ReadOnly = false;
+                tab3btnSearch.Enabled = true;
+            }
+
+        }
+
+        private void tab3btnSearch_Click(object sender, EventArgs e)
+        {
+            if (tab3OldName.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("用户名不能为空！", "操作错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tab3OldName.Focus();
+                return;
+            }
+
+            tab3OldName.ReadOnly = true;
+            string oldName = tab3OldName.Text.Trim();
+            string sql = string.Format("SELECT COUNT(*) FROM [User] WHERE [UserName] = N'{0}' ", oldName);
+            Login.command.CommandText = sql;
+
+            try
+            {
+                Login.conn.Open();
+                tssStatus.Text = "正在查询数据库...";
+                int sum = (int)Login.command.ExecuteScalar();
+                if (sum == 1)
+                {
+                    tab3lblShow.Text = "请输入新的用户名或者密码";
+                    tab3btnSearch.Enabled = false;
+                    tssDone.Text = "已查询到用户信息";
+                    tab3NewName.Focus();
+                }
+                else
+                {
+                    DialogResult diaRes = MessageBox.Show("无用户信息，无法修改。\n是否继续编辑输入？", "查询出错", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                    if (diaRes == DialogResult.OK)
+                        tab3OldName.ForeColor = Color.Red;
+                    else
+                        tab3OldName.Text = string.Empty;
+                    
+                    tab3OldName.ReadOnly = false;
+                    tab3OldName.Focus();
+                    tssDone.Text = "无用户信息";
+                }
+                tssStatus.Text = "就绪";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "操作数据库出错", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Login.conn.Close();
+            }
+        }
+
+
+        bool tab3NameOk = false;
+      
+
+        private void tab3NewName_TextChanged(object sender, EventArgs e)
+        {
+            tab3NewName.ForeColor = Color.Black;
+        }
+
+        private void tabAlter_Click(object sender, EventArgs e)
+        {
+            tab3btnAlter.Focus();
+        }
+
+        private void tab3NewName_Leave(object sender, EventArgs e)
+        {
+            if (tab3NewName.Text.Trim() == string.Empty)
+                return;
+            CheckName(tab3NewName, ref tab3NameOk);
         }
 
     }

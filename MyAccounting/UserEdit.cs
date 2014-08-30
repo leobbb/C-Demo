@@ -19,7 +19,7 @@ namespace MyAccounting
 
         // 用于表示用户名是否可用
         bool tab2NameOk = false;
-        // 信息是否需要更新
+        // 信息是否需要更新（标记数据库信息已经修改，需要更新）
         bool infoUpdate = false;
         // 第一次加载时进行刷新
         bool firstLoad = true;
@@ -42,6 +42,8 @@ namespace MyAccounting
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // 在状态栏显示当前选项卡的内容
+            tssDone.Text = tabControl1.SelectedTab.Text;
             switch (tabControl1.SelectedIndex)
             {
                 case 0:
@@ -54,8 +56,6 @@ namespace MyAccounting
                     Refresh_tabAlter();
                     break;
             }
-            tssDone.Text = tabControl1.SelectedTab.Text;
-
         }
 
         private void Refresh_tabAlter()
@@ -68,7 +68,6 @@ namespace MyAccounting
             // 设置按下Enter键时的操作
             this.AcceptButton = tab2btnAdd;
             this.CancelButton = tab2btnClear;
-            tssDone.Text = "添加用户";
         }
 
         private void Refresh_tabInfo()
@@ -76,13 +75,13 @@ namespace MyAccounting
             // 设置按下Enter键时的操作
             this.AcceptButton = null;
             this.CancelButton = null;
-            tssDone.Text = "浏览用户信息";
+
             if (!(firstLoad || infoUpdate))
                 return;
             int sum = 0;
             string sql = "SELECT [UserName] FROM [User] ";
             Login.command.CommandText = sql;
-
+            tab1lsbShow.Items.Clear();
             try
             {
                 // 防止在其他方法中调用是数据库连接已经出于打开状态
@@ -96,7 +95,7 @@ namespace MyAccounting
                     tab1lsbShow.Items.Add(Login.dataReader["UserName"].ToString());
                     ++sum;
                 }
-                tab1lblShow.Text = string.Format("系统共有用户 {0} 个：", sum);
+                tab1txtShow.Text = string.Format("系统共有用户 {0} 个：", sum);
                 tssDone.Text = "数据库查询成功";
                 tssStatus.Text = "就绪";
                 firstLoad = false;
@@ -143,6 +142,8 @@ namespace MyAccounting
                 {
                     MessageBox.Show("用户信息添加成功", "操作成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     tssDone.Text = "用户信息添加成功";
+                    // 标记数据库信息已经修改，需要更新
+                    infoUpdate = true;
                     tab2btnClear_Click(sender, e);
                 }
                 else
@@ -221,6 +222,16 @@ namespace MyAccounting
         private void tab2Name_TextChanged(object sender, EventArgs e)
         {
             tab2Name.ForeColor = Color.Black;
+        }
+
+        private void tabAddUser_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.tabAddUser.Cursor = System.Windows.Forms.Cursors.IBeam;
+        }
+
+        private void tabAddUser_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.tabAddUser.Cursor = System.Windows.Forms.Cursors.Default;
         }
 
     }

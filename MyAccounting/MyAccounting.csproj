@@ -98,6 +98,9 @@
     <Compile Include="UserEdit.Designer.cs">
       <DependentUpon>UserEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserEdit.part1.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +129,7 @@
     <EmbeddedResource Include="UserEdit.resx">
       <DependentUpon>UserEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

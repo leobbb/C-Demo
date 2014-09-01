@@ -32,4 +32,30 @@ namespace MyAccounting
             return this._cName;
         }
     }
+
+    class Item
+    {
+        private int _iId;
+        private string _iName;
+
+        public int IId
+        {
+            get { return this._iId; }
+        }
+        public string IName
+        {
+            get { return this._iName; }
+        }
+
+        public Item(int id, string name)
+        {
+            this._iId = id;
+            this._iName = name;
+        }
+
+        public override string ToString()
+        {
+            return IName;
+        }
+    }
 }

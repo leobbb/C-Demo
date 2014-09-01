@@ -19,7 +19,10 @@ namespace MyAccounting
 
         private void rdoIncome_CheckedChanged(object sender, EventArgs e)
         {
-            CategoryChange(this.cboCategory,this.rdoIncome);
+            //CategoryChange(this.cboCategory,this.rdoIncome);
+            AddItems.UpdateCategory(this.cboCategory, this.rdoExpenditure.Checked);
+            cboCategory.Items.RemoveAt(0);
+            cboCategory.SelectedIndex = 0;
         }
 
         internal static void CategoryChange(ComboBox cbo,RadioButton rdo)

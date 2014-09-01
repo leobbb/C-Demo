@@ -62,6 +62,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tab3btnAlter = new System.Windows.Forms.Button();
             this.tab3NewName = new System.Windows.Forms.TextBox();
+            this.tab4Delete = new System.Windows.Forms.TabPage();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -153,6 +154,7 @@
             this.tabControl1.Controls.Add(this.tabInfo);
             this.tabControl1.Controls.Add(this.tabAddUser);
             this.tabControl1.Controls.Add(this.tabAlter);
+            this.tabControl1.Controls.Add(this.tab4Delete);
             this.tabControl1.Location = new System.Drawing.Point(0, 28);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -352,7 +354,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(429, 176);
             this.panel1.TabIndex = 13;
-            this.panel1.VisibleChanged += new System.EventHandler(this.panel1_VisibleChanged);
             this.panel1.Click += new System.EventHandler(this.panel1_Click);
             // 
             // label6
@@ -415,6 +416,16 @@
             this.tab3NewName.TabIndex = 4;
             this.tab3NewName.TextChanged += new System.EventHandler(this.tab3NewName_TextChanged);
             this.tab3NewName.Leave += new System.EventHandler(this.tab3NewName_Leave);
+            // 
+            // tab4Delete
+            // 
+            this.tab4Delete.Location = new System.Drawing.Point(4, 22);
+            this.tab4Delete.Name = "tab4Delete";
+            this.tab4Delete.Padding = new System.Windows.Forms.Padding(3);
+            this.tab4Delete.Size = new System.Drawing.Size(445, 295);
+            this.tab4Delete.TabIndex = 3;
+            this.tab4Delete.Text = "tabPage1";
+            this.tab4Delete.UseVisualStyleBackColor = true;
             // 
             // UserEdit
             // 
@@ -483,6 +494,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label tab3lblShow;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TabPage tab4Delete;
 
     }
 }

@@ -184,6 +184,7 @@ namespace MyAccounting
             Login.command.CommandText = sql;
             try
             {
+                Login.conn.Close();
                 Login.conn.Open();
                 tssStatus.Text = "正在检索用户名是否可用...";
                 int sum = (int)Login.command.ExecuteScalar();
@@ -252,7 +253,7 @@ namespace MyAccounting
 
         #endregion
 
-        
+        #region tab3 相关代码
 
         private void Refresh_tabAlter()
         {
@@ -296,7 +297,7 @@ namespace MyAccounting
                     tab3lblShow.Text = "请输入新的用户名或者密码";
                     tab3btnSearch.Enabled = false;
                     tssDone.Text = "已查询到用户信息";
-                    panel1.Visible = true;
+                    panel1Show();
                     tab3NewName.Focus();
                 }
                 else
@@ -334,8 +335,16 @@ namespace MyAccounting
         }
         bool tab3NameOk = false;
 
-        private void panel1_VisibleChanged(object sender, EventArgs e)
+        //private void panel1_VisibleChanged(object sender, EventArgs e)
+        //{
+        //    tab3NameOk = false;
+        //    tab3NewName.Text = "";
+        //    tab3NewPwd.Text = "";
+        //}
+
+        private void panel1Show()
         {
+            panel1.Visible = true;
             tab3NameOk = false;
             tab3NewName.Text = "";
             tab3NewPwd.Text = "";
@@ -347,7 +356,7 @@ namespace MyAccounting
             tab3NewName.ForeColor = Color.Black;
             tab3NameOk = false;
         }
-
+        
         private void panel1_Click(object sender, EventArgs e)
         {
             tab3btnAlter.Focus();
@@ -414,6 +423,7 @@ namespace MyAccounting
                     tssDone.Text = "信息修改成功";
                     tab3lblShow.Text = "";
                     tab3OldName.ReadOnly = false;
+                    tab3OldName.Text = string.Empty;
                     tab3OldName.Focus();
                     tab3btnSearch.Enabled = true;
                     
@@ -435,6 +445,7 @@ namespace MyAccounting
                 Login.conn.Close();
             }
         }
+        #endregion
 
 
 

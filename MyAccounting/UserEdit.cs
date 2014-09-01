@@ -106,12 +106,58 @@ namespace MyAccounting
 
         private void tab1tsmEdit_Click(object sender, EventArgs e)
         {
-            string oldName = tab1lsbShow.SelectedItem.ToString();
             tabControl1.SelectedIndex = 2;
+            tab3OldName.Text = tab1lsbShow.SelectedItem.ToString();
+            tab3OldName.ReadOnly = true;
             tab3lblShow.Text = "请输入新的用户名或者密码";
             tab3btnSearch.Enabled = false;
             panel1Show();
         }
+
+        private void tab1tsmDel_Click(object sender, EventArgs e)
+        {
+            string oldName = tab1lsbShow.SelectedItem.ToString();
+            if (oldName == "admin")
+            {
+                MessageBox.Show("管理员账户不能删除", "操作出错", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            string sql = string.Format("DELETE FROM [User] WHERE [Username] = N'{0}'", oldName);
+            Login.command.CommandText = sql;
+            try
+            {
+                Login.conn.Open();
+                tssStatus.Text = "正在连接数据库... ";
+                int sum = Login.command.ExecuteNonQuery();
+                // 标记数据库信息已经修改
+                infoUpdate = true;
+                if (sum == 1)
+                {
+                    MessageBox.Show("恭喜！\n用户信息已经删除。", "操作成功", MessageBoxButtons.OK);
+                    Login.conn.Close();
+                    Refresh_tabInfo();
+                    tssDone.Text = "用户信息删除成功";
+                }
+                else
+                {
+                    MessageBox.Show("操作出现错误", "操作失败", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    Login.conn.Close();
+                    Refresh_tabInfo();
+                    tssDone.Text = "操作失败";
+                }
+                tssStatus.Text = "就绪";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "操作数据库出错", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Login.conn.Close();
+            }
+        }
+
 
         #endregion 
 
@@ -354,9 +400,12 @@ namespace MyAccounting
         {
             panel1.Visible = true;
             tab3NameOk = false;
+            tab3NewName.Enabled = true;
             tab3NewName.Focus();
             tab3NewName.Text = "";
             tab3NewPwd.Text = "";
+            if (tab3OldName.Text.Trim() == "admin")
+                tab3NewName.Enabled = false;
         }
       
 
@@ -428,7 +477,9 @@ namespace MyAccounting
                     //tab3NewName.Text = "";
                     //tab3NewPwd.Text = "";
                     panel1.Visible = false;
+                    // 标记数据库信息已经修改
                     infoUpdate = true;
+
                     tssDone.Text = "信息修改成功";
                     tab3lblShow.Text = "";
                     tab3OldName.ReadOnly = false;
@@ -457,6 +508,7 @@ namespace MyAccounting
 
 
         #endregion
+
 
 
 

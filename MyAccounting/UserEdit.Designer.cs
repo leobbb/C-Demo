@@ -86,18 +86,20 @@
             this.tsbAlter});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(453, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(450, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // tsbInfo
             // 
+            this.tsbInfo.CheckOnClick = true;
             this.tsbInfo.Image = ((System.Drawing.Image)(resources.GetObject("tsbInfo.Image")));
             this.tsbInfo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbInfo.Name = "tsbInfo";
             this.tsbInfo.Size = new System.Drawing.Size(105, 22);
             this.tsbInfo.Text = "浏览用户信息";
             this.tsbInfo.CheckedChanged += new System.EventHandler(this.tsbInfo_Checked);
+            this.tsbInfo.Click += new System.EventHandler(this.tsbInfo_Click);
             // 
             // toolStripSeparator1
             // 
@@ -106,28 +108,34 @@
             // 
             // tsbAddUser
             // 
+            this.tsbAddUser.CheckOnClick = true;
             this.tsbAddUser.Image = ((System.Drawing.Image)(resources.GetObject("tsbAddUser.Image")));
             this.tsbAddUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAddUser.Name = "tsbAddUser";
             this.tsbAddUser.Size = new System.Drawing.Size(79, 22);
             this.tsbAddUser.Text = "添加用户";
+            this.tsbAddUser.CheckedChanged += new System.EventHandler(this.tsbAddUser_CheckedChanged);
+            this.tsbAddUser.Click += new System.EventHandler(this.tsbAddUser_Click);
             // 
             // tsbAlter
             // 
+            this.tsbAlter.CheckOnClick = true;
             this.tsbAlter.Image = ((System.Drawing.Image)(resources.GetObject("tsbAlter.Image")));
             this.tsbAlter.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAlter.Name = "tsbAlter";
             this.tsbAlter.Size = new System.Drawing.Size(105, 22);
             this.tsbAlter.Text = "修改用户信息";
+            this.tsbAlter.CheckedChanged += new System.EventHandler(this.tsbAlter_CheckedChanged);
+            this.tsbAlter.Click += new System.EventHandler(this.tsbAlter_Click);
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tssStatus,
             this.tssDone});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 344);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 319);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(453, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(450, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -161,7 +169,7 @@
             this.tabControl1.Controls.Add(this.tabInfo);
             this.tabControl1.Controls.Add(this.tabAddUser);
             this.tabControl1.Controls.Add(this.tabAlter);
-            this.tabControl1.Location = new System.Drawing.Point(0, 28);
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(453, 321);
@@ -435,7 +443,7 @@
             // tab1tsmEdit
             // 
             this.tab1tsmEdit.Name = "tab1tsmEdit";
-            this.tab1tsmEdit.Size = new System.Drawing.Size(152, 22);
+            this.tab1tsmEdit.Size = new System.Drawing.Size(126, 22);
             this.tab1tsmEdit.Text = "修改信息";
             this.tab1tsmEdit.Click += new System.EventHandler(this.tab1tsmEdit_Click);
             // 
@@ -447,7 +455,7 @@
             // tab1tsmDel
             // 
             this.tab1tsmDel.Name = "tab1tsmDel";
-            this.tab1tsmDel.Size = new System.Drawing.Size(152, 22);
+            this.tab1tsmDel.Size = new System.Drawing.Size(126, 22);
             this.tab1tsmDel.Text = "删除";
             this.tab1tsmDel.Click += new System.EventHandler(this.tab1tsmDel_Click);
             // 
@@ -455,7 +463,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 366);
+            this.ClientSize = new System.Drawing.Size(450, 341);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);

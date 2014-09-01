@@ -30,14 +30,50 @@ namespace MyAccounting
             Refresh_tabInfo();
         }
 
+        private void tsbInfo_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 0;
+            tsbAddUser.Checked = false;
+            tsbAlter.Checked = false;
+        }
+
+        private void tsbAddUser_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 1;
+            tsbInfo.Checked = false;
+            tsbAlter.Checked = false;
+        }
+
+        private void tsbAlter_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 2;
+            tsbInfo.Checked = false;
+            tsbAddUser.Checked = false;
+        }
+
+        private void tsbAddUser_CheckedChanged(object sender, EventArgs e)
+        {
+            tsbChangeColor(tsbAddUser);
+        }
+
+        private void tsbAlter_CheckedChanged(object sender, EventArgs e)
+        {
+            tsbChangeColor(tsbAlter);
+        }
+
 
         private void tsbInfo_Checked(object sender, EventArgs e)
         {
-            if (tsbInfo.ForeColor != Color.Red)
-                tsbInfo.ForeColor = Color.Red;
+            tsbChangeColor(tsbInfo);            
+        }
+
+        private void tsbChangeColor(ToolStripButton tsbBtn)
+        {
+            if (tsbBtn.Checked)
+                tsbBtn.ForeColor = Color.Blue;
             else
-                tsbInfo.ForeColor = Color.Black;
-            
+                tsbBtn.ForeColor = Color.Black;
+
         }
 
         // 控制每页的显示

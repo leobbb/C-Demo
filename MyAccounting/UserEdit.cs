@@ -104,6 +104,15 @@ namespace MyAccounting
             }
         }
 
+        private void tab1tsmEdit_Click(object sender, EventArgs e)
+        {
+            string oldName = tab1lsbShow.SelectedItem.ToString();
+            tabControl1.SelectedIndex = 2;
+            tab3lblShow.Text = "请输入新的用户名或者密码";
+            tab3btnSearch.Enabled = false;
+            panel1Show();
+        }
+
         #endregion 
 
         #region tab2 相关代码
@@ -298,7 +307,6 @@ namespace MyAccounting
                     tab3btnSearch.Enabled = false;
                     tssDone.Text = "已查询到用户信息";
                     panel1Show();
-                    tab3NewName.Focus();
                 }
                 else
                 {
@@ -346,6 +354,7 @@ namespace MyAccounting
         {
             panel1.Visible = true;
             tab3NameOk = false;
+            tab3NewName.Focus();
             tab3NewName.Text = "";
             tab3NewPwd.Text = "";
         }
@@ -445,8 +454,9 @@ namespace MyAccounting
                 Login.conn.Close();
             }
         }
-        #endregion
 
+
+        #endregion
 
 
 

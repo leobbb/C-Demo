@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserEdit));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbInfo = new System.Windows.Forms.ToolStripButton();
@@ -63,6 +64,10 @@
             this.tab3btnAlter = new System.Windows.Forms.Button();
             this.tab3NewName = new System.Windows.Forms.TextBox();
             this.tab4Delete = new System.Windows.Forms.TabPage();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tab1tsmEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tab1tsmDel = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -70,6 +75,7 @@
             this.tabAddUser.SuspendLayout();
             this.tabAlter.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -140,6 +146,7 @@
             // 
             // tab1lsbShow
             // 
+            this.tab1lsbShow.ContextMenuStrip = this.contextMenuStrip1;
             this.tab1lsbShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tab1lsbShow.FormattingEnabled = true;
             this.tab1lsbShow.ItemHeight = 20;
@@ -427,6 +434,33 @@
             this.tab4Delete.Text = "tabPage1";
             this.tab4Delete.UseVisualStyleBackColor = true;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tab1tsmEdit,
+            this.toolStripSeparator2,
+            this.tab1tsmDel});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 76);
+            // 
+            // tab1tsmEdit
+            // 
+            this.tab1tsmEdit.Name = "tab1tsmEdit";
+            this.tab1tsmEdit.Size = new System.Drawing.Size(152, 22);
+            this.tab1tsmEdit.Text = "修改信息";
+            this.tab1tsmEdit.Click += new System.EventHandler(this.tab1tsmEdit_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(123, 6);
+            // 
+            // tab1tsmDel
+            // 
+            this.tab1tsmDel.Name = "tab1tsmDel";
+            this.tab1tsmDel.Size = new System.Drawing.Size(126, 22);
+            this.tab1tsmDel.Text = "删除";
+            // 
             // UserEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -454,6 +488,7 @@
             this.tabAlter.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -495,6 +530,10 @@
         private System.Windows.Forms.Label tab3lblShow;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabPage tab4Delete;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tab1tsmEdit;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem tab1tsmDel;
 
     }
 }

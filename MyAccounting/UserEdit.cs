@@ -90,6 +90,7 @@ namespace MyAccounting
                 tab1txtShow.Text = string.Format("系统共有用户 {0} 个：", sum);
                 tssDone.Text = "数据库查询成功";
                 tssStatus.Text = "就绪";
+                tab1lsbShow.SelectedIndex = 0;
                 firstLoad = false;
                 infoUpdate = false;
             }
@@ -137,6 +138,7 @@ namespace MyAccounting
                     MessageBox.Show("恭喜！\n用户信息已经删除。", "操作成功", MessageBoxButtons.OK);
                     Login.conn.Close();
                     Refresh_tabInfo();
+
                     tssDone.Text = "用户信息删除成功";
                 }
                 else
@@ -157,7 +159,10 @@ namespace MyAccounting
                 Login.conn.Close();
             }
         }
-
+        private void tab1lsbShow_DoubleClick(object sender, EventArgs e)
+        {
+            tab1tsmEdit_Click(sender, e);
+        }
 
         #endregion 
 
@@ -508,9 +513,6 @@ namespace MyAccounting
 
 
         #endregion
-
-
-
 
     }
 }

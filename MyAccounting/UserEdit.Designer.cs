@@ -154,6 +154,7 @@
             this.tab1lsbShow.Name = "tab1lsbShow";
             this.tab1lsbShow.Size = new System.Drawing.Size(320, 204);
             this.tab1lsbShow.TabIndex = 1;
+            this.tab1lsbShow.DoubleClick += new System.EventHandler(this.tab1lsbShow_DoubleClick);
             // 
             // tabControl1
             // 
@@ -429,7 +430,7 @@
             this.toolStripSeparator2,
             this.tab1tsmDel});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 76);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(127, 54);
             // 
             // tab1tsmEdit
             // 

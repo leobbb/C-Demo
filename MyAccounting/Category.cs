@@ -21,6 +21,11 @@ namespace MyAccounting
             get { return _cName; }
         }
 
+        public Category(int id)
+        {
+            this._cId = id;
+            this._cName = "未定义";
+        }
         public Category(int id, string name)
         {
             this._cId = id;
@@ -33,7 +38,7 @@ namespace MyAccounting
         }
     }
 
-    class Item
+    class Item : Category
     {
         private int _iId;
         private string _iName;
@@ -47,9 +52,10 @@ namespace MyAccounting
             get { return this._iName; }
         }
 
-        public Item(int id, string name)
+        public Item(int cid, int iid, string name)
+            : base(cid)
         {
-            this._iId = id;
+            this._iId = iid;
             this._iName = name;
         }
 

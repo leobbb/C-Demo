@@ -54,7 +54,30 @@ namespace MyAccounting
             if (category != null) cId = category.CId;
 
             // 选择指定类别编号的收支项
-            string sql = string.Format("SELECT * FROM [Item] WHERE [CategoryId] = {0}", cId);
+            string sql = string.Format("SELECT * FROM [Item] WHERE [CId] = {0}", cId);
+            try
+            {
+                Login.conn.Open();
+                Login.command.CommandText = sql;
+
+                Login.dataReader = Login.command.ExecuteReader();
+
+                while (Login.dataReader.Read())
+                {
+                    int iId = (int)Login.dataReader["ItemId"];
+                    string name = Login.dataReader["ItemName"].ToString().Trim();
+                    lstItem.Items.Add(new Item(cId, iId, name));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "操作数据库出错！", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            finally
+            {
+                Login.dataReader.Close();
+                Login.conn.Close();
+            }
 
             //switch (cboCategory.SelectedItem.ToString())
             //{
@@ -102,21 +125,52 @@ namespace MyAccounting
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            rtxtRemarks.Clear();
-            rtxtRemarks.AppendText("要保存的信息为: \n");
-            rtxtRemarks.AppendText(cboCategory.SelectedItem.ToString());
-            rtxtRemarks.AppendText("-");
-            rtxtRemarks.AppendText(lstItem.SelectedItem.ToString() + "\n日期：");
-            rtxtRemarks.AppendText(dtpDate.Value.ToLongDateString()+"\n说明：");
-            rtxtRemarks.AppendText(txtExplain.Text + "\n收支人：");
-            if (chkOwn.Checked) rtxtRemarks.AppendText(chkOwn.Text + "  ");
-            if (chkFamily.Checked) rtxtRemarks.AppendText(chkFamily.Text + "  ");
-            if (chkRelative.Checked) rtxtRemarks.AppendText(chkRelative.Text + "  ");
-            if (chkFriend.Checked) rtxtRemarks.AppendText(chkFriend.Text + "  ");
-            if (chkColleague.Checked) rtxtRemarks.AppendText(chkColleague.Text + "  ");
-            if (chkOther.Checked) rtxtRemarks.AppendText(chkOther.Text + "  ");
-            rtxtRemarks.AppendText("\n金额：");
-            rtxtRemarks.AppendText(numAmount.Value.ToString());
+            int iId = 0, cId = 0;
+            Item item = lstItem.SelectedItem as Item;
+            if (item != null)
+            {
+                cId = item.CId;
+                iId = item.IId;
+            }
+            decimal amount = numAmount.Value;       // 金额
+            DateTime date = dtpDate.Value;          // 日期
+            string explain = txtExplain.Text;       // 说明
+            string sql = string.Format("INSERT INTO [List]([CId],[ItemId], [Amount],[TradeDate],[Explain]) VALUES " +
+                "({0},{1},{2},'{3}',N'{4}')", cId, iId, amount, date, explain);
+            try
+            {
+                Login.command.CommandText = sql;
+                Login.conn.Open();
+                int count = Login.command.ExecuteNonQuery();
+                if (count > 0)
+                    MessageBox.Show("添加收支明细成功。", "添加成功", MessageBoxButtons.OK);
+                else
+                    MessageBox.Show("添加收支明细失败", "添加失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "操作数据库出错", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Login.conn.Close();
+            }
+
+            //rtxtRemarks.Clear();
+            //rtxtRemarks.AppendText("要保存的信息为: \n");
+            //rtxtRemarks.AppendText(cboCategory.SelectedItem.ToString());
+            //rtxtRemarks.AppendText("-");
+            //rtxtRemarks.AppendText(lstItem.SelectedItem.ToString() + "\n日期：");
+            //rtxtRemarks.AppendText(dtpDate.Value.ToLongDateString()+"\n说明：");
+            //rtxtRemarks.AppendText(txtExplain.Text + "\n收支人：");
+            //if (chkOwn.Checked) rtxtRemarks.AppendText(chkOwn.Text + "  ");
+            //if (chkFamily.Checked) rtxtRemarks.AppendText(chkFamily.Text + "  ");
+            //if (chkRelative.Checked) rtxtRemarks.AppendText(chkRelative.Text + "  ");
+            //if (chkFriend.Checked) rtxtRemarks.AppendText(chkFriend.Text + "  ");
+            //if (chkColleague.Checked) rtxtRemarks.AppendText(chkColleague.Text + "  ");
+            //if (chkOther.Checked) rtxtRemarks.AppendText(chkOther.Text + "  ");
+            //rtxtRemarks.AppendText("\n金额：");
+            //rtxtRemarks.AppendText(numAmount.Value.ToString());
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

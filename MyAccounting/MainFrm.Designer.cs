@@ -63,7 +63,7 @@
             this.HToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(740, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(740, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -74,7 +74,7 @@
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.S)));
             this.toolStripTextBox1.ShowShortcutKeys = false;
-            this.toolStripTextBox1.Size = new System.Drawing.Size(103, 20);
+            this.toolStripTextBox1.Size = new System.Drawing.Size(99, 21);
             this.toolStripTextBox1.Text = "系统管理（&S）";
             // 
             // tsmExit
@@ -82,7 +82,7 @@
             this.tsmExit.Name = "tsmExit";
             this.tsmExit.ShortcutKeyDisplayString = "";
             this.tsmExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
-            this.tsmExit.Size = new System.Drawing.Size(170, 22);
+            this.tsmExit.Size = new System.Drawing.Size(172, 22);
             this.tsmExit.Text = "退出（&X）";
             this.tsmExit.Click += new System.EventHandler(this.tsmExit_Click);
             // 
@@ -94,14 +94,14 @@
             this.EToolStripMenuItem.Name = "EToolStripMenuItem";
             this.EToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.E)));
             this.EToolStripMenuItem.ShowShortcutKeys = false;
-            this.EToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
+            this.EToolStripMenuItem.Size = new System.Drawing.Size(99, 21);
             this.EToolStripMenuItem.Text = "收支管理（&E）";
             // 
             // tsmAddExp
             // 
             this.tsmAddExp.Name = "tsmAddExp";
             this.tsmAddExp.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
-            this.tsmAddExp.Size = new System.Drawing.Size(198, 22);
+            this.tsmAddExp.Size = new System.Drawing.Size(196, 22);
             this.tsmAddExp.Text = "添加收支（&P）";
             this.tsmAddExp.Click += new System.EventHandler(this.tsmAddExp_Click);
             // 
@@ -109,8 +109,9 @@
             // 
             this.tsmStatistics.Name = "tsmStatistics";
             this.tsmStatistics.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
-            this.tsmStatistics.Size = new System.Drawing.Size(198, 22);
+            this.tsmStatistics.Size = new System.Drawing.Size(196, 22);
             this.tsmStatistics.Text = "统计查询（&C）";
+            this.tsmStatistics.Click += new System.EventHandler(this.tsbStatistics_Click);
             // 
             // DToolStripMenuItem
             // 
@@ -120,14 +121,14 @@
             this.DToolStripMenuItem.Name = "DToolStripMenuItem";
             this.DToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
             this.DToolStripMenuItem.ShowShortcutKeys = false;
-            this.DToolStripMenuItem.Size = new System.Drawing.Size(105, 20);
+            this.DToolStripMenuItem.Size = new System.Drawing.Size(101, 21);
             this.DToolStripMenuItem.Text = "基本资料（&D）";
             // 
             // tsmAddItems
             // 
             this.tsmAddItems.Name = "tsmAddItems";
             this.tsmAddItems.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.I)));
-            this.tsmAddItems.Size = new System.Drawing.Size(214, 22);
+            this.tsmAddItems.Size = new System.Drawing.Size(212, 22);
             this.tsmAddItems.Text = "添加收支项目（&I）";
             this.tsmAddItems.Click += new System.EventHandler(this.tsmAddItems_Click);
             // 
@@ -135,8 +136,9 @@
             // 
             this.tsmUser.Name = "tsmUser";
             this.tsmUser.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.U)));
-            this.tsmUser.Size = new System.Drawing.Size(214, 22);
+            this.tsmUser.Size = new System.Drawing.Size(212, 22);
             this.tsmUser.Text = "用户管理（&U）";
+            this.tsmUser.Click += new System.EventHandler(this.tsbtsmUser_Click);
             // 
             // HToolStripMenuItem
             // 
@@ -145,7 +147,7 @@
             this.HToolStripMenuItem.Name = "HToolStripMenuItem";
             this.HToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.H)));
             this.HToolStripMenuItem.ShowShortcutKeys = false;
-            this.HToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.HToolStripMenuItem.Size = new System.Drawing.Size(77, 21);
             this.HToolStripMenuItem.Text = "帮助（&H）";
             // 
             // tsmAbout
@@ -164,7 +166,7 @@
             this.toolStripSeparator1,
             this.tsbAddItems,
             this.tsbtsmUser});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 25);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(740, 25);
             this.toolStrip1.TabIndex = 1;
@@ -176,7 +178,7 @@
             this.tsbAddExp.Image = ((System.Drawing.Image)(resources.GetObject("tsbAddExp.Image")));
             this.tsbAddExp.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAddExp.Name = "tsbAddExp";
-            this.tsbAddExp.Size = new System.Drawing.Size(51, 22);
+            this.tsbAddExp.Size = new System.Drawing.Size(57, 22);
             this.tsbAddExp.Text = "AddExp";
             this.tsbAddExp.ToolTipText = "添加收支情况";
             this.tsbAddExp.Click += new System.EventHandler(this.tsmAddExp_Click);
@@ -187,9 +189,10 @@
             this.tsbStatistics.Image = ((System.Drawing.Image)(resources.GetObject("tsbStatistics.Image")));
             this.tsbStatistics.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbStatistics.Name = "tsbStatistics";
-            this.tsbStatistics.Size = new System.Drawing.Size(39, 22);
+            this.tsbStatistics.Size = new System.Drawing.Size(43, 22);
             this.tsbStatistics.Text = "Statis";
             this.tsbStatistics.ToolTipText = "收支统计和查询";
+            this.tsbStatistics.Click += new System.EventHandler(this.tsbStatistics_Click);
             // 
             // toolStripSeparator1
             // 
@@ -202,7 +205,7 @@
             this.tsbAddItems.Image = ((System.Drawing.Image)(resources.GetObject("tsbAddItems.Image")));
             this.tsbAddItems.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAddItems.Name = "tsbAddItems";
-            this.tsbAddItems.Size = new System.Drawing.Size(62, 22);
+            this.tsbAddItems.Size = new System.Drawing.Size(68, 22);
             this.tsbAddItems.Text = "AddItems";
             this.tsbAddItems.ToolTipText = "添加收支项目";
             this.tsbAddItems.Click += new System.EventHandler(this.tsmAddItems_Click);
@@ -213,7 +216,7 @@
             this.tsbtsmUser.Image = ((System.Drawing.Image)(resources.GetObject("tsbtsmUser.Image")));
             this.tsbtsmUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtsmUser.Name = "tsbtsmUser";
-            this.tsbtsmUser.Size = new System.Drawing.Size(58, 22);
+            this.tsbtsmUser.Size = new System.Drawing.Size(65, 22);
             this.tsbtsmUser.Text = "UserMan";
             this.tsbtsmUser.ToolTipText = "用户信息管理";
             this.tsbtsmUser.Click += new System.EventHandler(this.tsbtsmUser_Click);
@@ -223,7 +226,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tssStatus,
             this.tssMsg});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 525);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 483);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(740, 22);
             this.statusStrip1.TabIndex = 2;
@@ -232,22 +235,22 @@
             // tssStatus
             // 
             this.tssStatus.Name = "tssStatus";
-            this.tssStatus.Size = new System.Drawing.Size(33, 17);
+            this.tssStatus.Size = new System.Drawing.Size(32, 17);
             this.tssStatus.Text = "就绪";
             // 
             // tssMsg
             // 
             this.tssMsg.Name = "tssMsg";
-            this.tssMsg.Size = new System.Drawing.Size(692, 17);
+            this.tssMsg.Size = new System.Drawing.Size(693, 17);
             this.tssMsg.Spring = true;
             this.tssMsg.Text = "请选择一个操作";
             // 
             // MainFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(740, 547);
+            this.ClientSize = new System.Drawing.Size(740, 505);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);

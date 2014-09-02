@@ -52,7 +52,18 @@ namespace MyAccounting
 
         private void tsbtsmUser_Click(object sender, EventArgs e)
         {
+            UserEdit userEdit = new UserEdit();
+            userEdit.MdiParent = this;
+            userEdit.Show();
+            tssMsg.Text = userEdit.Text;
+        }
 
+        private void tsbStatistics_Click(object sender, EventArgs e)
+        {
+            SelectList selList = new SelectList();
+            selList.MdiParent = this;
+            selList.Show();
+            tssMsg.Text = selList.Text;
         }
 
 

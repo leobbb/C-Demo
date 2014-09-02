@@ -184,7 +184,6 @@
             this.cboCategory.Size = new System.Drawing.Size(175, 21);
             this.cboCategory.TabIndex = 8;
             this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.cboCategory_SelectedIndexChanged);
-            this.cboCategory.Validated += new System.EventHandler(this.cboCategory_SelectedIndexChanged);
             // 
             // lstItem
             // 

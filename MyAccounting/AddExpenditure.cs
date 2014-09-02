@@ -25,72 +25,79 @@ namespace MyAccounting
             cboCategory.SelectedIndex = 0;
         }
 
-        internal static void CategoryChange(ComboBox cbo,RadioButton rdo)
-        {
-            cbo.Items.Clear();
-            if (rdo.Checked == true)
-            {
-                cbo.Items.Add("工作收入");
-                cbo.Items.Add("投资收益");
-                cbo.Items.Add("其他收入");
-            }
-            else
-            {
-                cbo.Items.Add("生活消费");
-                cbo.Items.Add("固定资产");
-                cbo.Items.Add("休闲娱乐");
-                cbo.Items.Add("医疗药品");
-                cbo.Items.Add("教育培训");
-                cbo.Items.Add("其他支出");
-            }
-            cbo.SelectedIndex = 0;
-        }
+        //internal static void CategoryChange(ComboBox cbo,RadioButton rdo)
+        //{
+        //    cbo.Items.Clear();
+        //    if (rdo.Checked == true)
+        //    {
+        //        cbo.Items.Add("工作收入");
+        //        cbo.Items.Add("投资收益");
+        //        cbo.Items.Add("其他收入");
+        //    }
+        //    else
+        //    {
+        //        cbo.Items.Add("生活消费");
+        //        cbo.Items.Add("固定资产");
+        //        cbo.Items.Add("休闲娱乐");
+        //        cbo.Items.Add("医疗药品");
+        //        cbo.Items.Add("教育培训");
+        //        cbo.Items.Add("其他支出");
+        //    }
+        //    cbo.SelectedIndex = 0;
+        //}
 
         private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             lstItem.Items.Clear();
-            switch (cboCategory.SelectedItem.ToString())
-            {
-                case "生活消费":
-                    lstItem.Items.Add("餐饮");
-                    lstItem.Items.Add("生活用品");
-                    lstItem.Items.Add("交通费");
-                    lstItem.Items.Add("水电气");
-                    lstItem.Items.Add("水果蔬菜");
-                    lstItem.SelectedIndex = 2;
-                    break;
-                case "固定资产":
-                    lstItem.Items.Add("家用电器");
-                    lstItem.Items.Add("服装");
-                    break;
-                case "休闲娱乐":
-                    lstItem.Items.AddRange(new object[] { "旅游度假", "腐败聚会" });
-                    break;
-                case "医疗药品":
-                    lstItem.Items.AddRange(new object[] { "药品费", "住院费", "护理费" });
-                    lstItem.SelectedIndex = 2;
-                    break;
-                case "教育培训":
-                    lstItem.Items.Add("进修费");
-                    lstItem.Items.Add("教材费");
-                    lstItem.Items.Add("数码装备");
-                    lstItem.SelectedIndex = 2;
-                    break;
-                case "工作收入":
-                    lstItem.Items.AddRange(new object[] { "工资", "兼职", "奖金" });
-                    lstItem.SelectedIndex = 1;
-                    break;
-                case "投资收益":
-                    lstItem.Items.Add("利息");
-                    break;
-                default:
-                    lstItem.Items.Add("无");
-                    break;
-            }
-            if (lstItem.SelectedIndex < 0) 
-            {
-                lstItem.SelectedIndex = 0;
-            }
+            int cId = 0;
+            Category category = cboCategory.SelectedItem as Category;
+            if (category != null) cId = category.CId;
+
+            // 选择指定类别编号的收支项
+            string sql = string.Format("SELECT * FROM [Item] WHERE [CategoryId] = {0}", cId);
+
+            //switch (cboCategory.SelectedItem.ToString())
+            //{
+            //    case "生活消费":
+            //        lstItem.Items.Add("餐饮");
+            //        lstItem.Items.Add("生活用品");
+            //        lstItem.Items.Add("交通费");
+            //        lstItem.Items.Add("水电气");
+            //        lstItem.Items.Add("水果蔬菜");
+            //        lstItem.SelectedIndex = 2;
+            //        break;
+            //    case "固定资产":
+            //        lstItem.Items.Add("家用电器");
+            //        lstItem.Items.Add("服装");
+            //        break;
+            //    case "休闲娱乐":
+            //        lstItem.Items.AddRange(new object[] { "旅游度假", "腐败聚会" });
+            //        break;
+            //    case "医疗药品":
+            //        lstItem.Items.AddRange(new object[] { "药品费", "住院费", "护理费" });
+            //        lstItem.SelectedIndex = 2;
+            //        break;
+            //    case "教育培训":
+            //        lstItem.Items.Add("进修费");
+            //        lstItem.Items.Add("教材费");
+            //        lstItem.Items.Add("数码装备");
+            //        lstItem.SelectedIndex = 2;
+            //        break;
+            //    case "工作收入":
+            //        lstItem.Items.AddRange(new object[] { "工资", "兼职", "奖金" });
+            //        lstItem.SelectedIndex = 1;
+            //        break;
+            //    case "投资收益":
+            //        lstItem.Items.Add("利息");
+            //        break;
+            //    default:
+            //        lstItem.Items.Add("无");
+            //        break;
+            //}
+            //if (lstItem.SelectedIndex < 0) 
+            //{
+            //    lstItem.SelectedIndex = 0;
+            //}
         }
 
         private void btnSave_Click(object sender, EventArgs e)

@@ -147,7 +147,7 @@ namespace MyAccounting
             {
                 // 添加项目名称的 SQL 语句
                 sql = string.Format("INSERT INTO [Item](ItemName, CId)"
-                    + "VALUES('N{0}',{1})", name, cId);
+                    + "VALUES(N'{0}',{1})", name, cId);
             }
 
             try

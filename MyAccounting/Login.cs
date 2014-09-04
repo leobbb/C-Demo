@@ -81,13 +81,6 @@ namespace MyAccounting
             this.Close();
         }
 
-
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             txtName.Text = "";

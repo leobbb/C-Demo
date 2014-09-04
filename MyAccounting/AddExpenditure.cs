@@ -21,6 +21,7 @@ namespace MyAccounting
         {
             //CategoryChange(this.cboCategory,this.rdoIncome);
             AddItems.UpdateCategory(this.cboCategory, this.rdoExpenditure.Checked);
+            // 删除复选框列表中的“一级分类”
             cboCategory.Items.RemoveAt(0);
             cboCategory.SelectedIndex = 0;
         }
@@ -77,6 +78,12 @@ namespace MyAccounting
             {
                 Login.dataReader.Close();
                 Login.conn.Close();
+            }
+
+            // 当列表中的项目个数不为0时，默认选择第一个项目。
+            if (lstItem.Items.Count > 0)
+            {
+                lstItem.SelectedIndex = 0;
             }
 
             //switch (cboCategory.SelectedItem.ToString())

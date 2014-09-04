@@ -12,9 +12,21 @@ namespace MyAccounting
 {
     public partial class MainFrm : Form
     {
+        // 程序的字段
+        private AddItems addItems;
+        private AddExpenditure addExp;
+        private About about;
+        private SelectList selectList;
+        private UserEdit userEdit;
+
         public MainFrm()
         {
             InitializeComponent();
+            addExp = new AddExpenditure();
+            addItems = new AddItems();
+            about = new About();
+            userEdit = new UserEdit();
+            selectList = new SelectList();
         }
 
 
@@ -25,34 +37,29 @@ namespace MyAccounting
 
         private void tsmAddExp_Click(object sender, EventArgs e)
         {
-            AddExpenditure addExpFrm = new AddExpenditure();
-            
-            addExpFrm.MinimizeBox = false;
-            addExpFrm.WindowState = FormWindowState.Maximized;
-            addExpFrm.MdiParent = this;
-            addExpFrm.Show();
-            tssMsg.Text = addExpFrm.Text;
+            addExp.MinimizeBox = false;
+            addExp.WindowState = FormWindowState.Maximized;
+            addExp.MdiParent = this;
+            addExp.Show();
+            tssMsg.Text = addExp.Text;
         }
 
         private void tsmAddItems_Click(object sender, EventArgs e)
-        {
-            AddItems addItmFrm = new AddItems();
-            addItmFrm.MdiParent = this;
-            addItmFrm.Show();
-            tssMsg.Text = addItmFrm.Text;
+        {            
+            addItems.MdiParent = this;
+            addItems.Show();
+            tssMsg.Text = addItems.Text;
         }
 
         private void tsmAbout_Click(object sender, EventArgs e)
-        {
-            About aboFrm = new About();
-            aboFrm.MdiParent = this;
-            aboFrm.Show();
-            tssMsg.Text = aboFrm.Text;
+        {         
+            about.MdiParent = this;
+            about.Show();
+            tssMsg.Text = about.Text;
         }
 
         private void tsbtsmUser_Click(object sender, EventArgs e)
         {
-            UserEdit userEdit = new UserEdit();
             userEdit.MdiParent = this;
             userEdit.Show();
             tssMsg.Text = userEdit.Text;
@@ -60,12 +67,9 @@ namespace MyAccounting
 
         private void tsbStatistics_Click(object sender, EventArgs e)
         {
-            SelectList selList = new SelectList();
-            selList.MdiParent = this;
-            selList.Show();
-            tssMsg.Text = selList.Text;
+            selectList.MdiParent = this;
+            selectList.Show();
+            tssMsg.Text = selectList.Text;
         }
-
-
     }
 }

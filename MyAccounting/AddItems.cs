@@ -23,6 +23,7 @@ namespace MyAccounting
         {
             // 调用更新下拉列表的方法
             AddItems.UpdateCategory(cboCategory,rdoExpenditure.Checked);
+            cboCategory.SelectedIndex = 0;
         }
 
         // 更新下拉列表的方法，第一个参数是需要更新的对象，第二个参数是显示的类别（收入或者支出）
@@ -68,7 +69,6 @@ namespace MyAccounting
                 Login.dataReader.Close();
                 Login.conn.Close();
             }
-            cboCategory.SelectedIndex = 0;
         }
 
         

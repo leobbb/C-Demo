@@ -34,11 +34,12 @@
             this.txtNo = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.rdoMale = new System.Windows.Forms.RadioButton();
             this.rdoFemale = new System.Windows.Forms.RadioButton();
+            this.rdoMale = new System.Windows.Forms.RadioButton();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnShow = new System.Windows.Forms.Button();
             this.lstShow = new System.Windows.Forms.ListBox();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,17 +93,6 @@
             this.panel1.Size = new System.Drawing.Size(126, 34);
             this.panel1.TabIndex = 4;
             // 
-            // rdoMale
-            // 
-            this.rdoMale.AutoSize = true;
-            this.rdoMale.Location = new System.Drawing.Point(19, 8);
-            this.rdoMale.Name = "rdoMale";
-            this.rdoMale.Size = new System.Drawing.Size(37, 17);
-            this.rdoMale.TabIndex = 0;
-            this.rdoMale.TabStop = true;
-            this.rdoMale.Text = "男";
-            this.rdoMale.UseVisualStyleBackColor = true;
-            // 
             // rdoFemale
             // 
             this.rdoFemale.AutoSize = true;
@@ -114,15 +104,26 @@
             this.rdoFemale.Text = "女";
             this.rdoFemale.UseVisualStyleBackColor = true;
             // 
+            // rdoMale
+            // 
+            this.rdoMale.AutoSize = true;
+            this.rdoMale.Location = new System.Drawing.Point(19, 8);
+            this.rdoMale.Name = "rdoMale";
+            this.rdoMale.Size = new System.Drawing.Size(37, 17);
+            this.rdoMale.TabIndex = 0;
+            this.rdoMale.TabStop = true;
+            this.rdoMale.Text = "男";
+            this.rdoMale.UseVisualStyleBackColor = true;
+            // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(73, 168);
+            this.btnSave.Location = new System.Drawing.Point(111, 168);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(88, 27);
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "保存";
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             // 
             // btnShow
             // 
@@ -142,11 +143,22 @@
             this.lstShow.Size = new System.Drawing.Size(166, 134);
             this.lstShow.TabIndex = 7;
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(12, 172);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 8;
+            this.btnAdd.Text = "添加";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // Test11_2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(425, 235);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lstShow);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.btnSave);
@@ -179,5 +191,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnShow;
         private System.Windows.Forms.ListBox lstShow;
+        private System.Windows.Forms.Button btnAdd;
     }
 }

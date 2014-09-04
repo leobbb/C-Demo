@@ -42,6 +42,7 @@ namespace MyAccounting
             addExp.MdiParent = this;
             addExp.Show();
             tssMsg.Text = addExp.Text;
+            addExp.Activate();
         }
 
         private void tsmAddItems_Click(object sender, EventArgs e)
@@ -49,6 +50,7 @@ namespace MyAccounting
             addItems.MdiParent = this;
             addItems.Show();
             tssMsg.Text = addItems.Text;
+            addItems.Activate();
         }
 
         private void tsmAbout_Click(object sender, EventArgs e)
@@ -56,6 +58,7 @@ namespace MyAccounting
             about.MdiParent = this;
             about.Show();
             tssMsg.Text = about.Text;
+            about.Activate();
         }
 
         private void tsbtsmUser_Click(object sender, EventArgs e)
@@ -63,6 +66,7 @@ namespace MyAccounting
             userEdit.MdiParent = this;
             userEdit.Show();
             tssMsg.Text = userEdit.Text;
+            userEdit.Activate();
         }
 
         private void tsbStatistics_Click(object sender, EventArgs e)
@@ -70,6 +74,7 @@ namespace MyAccounting
             selectList.MdiParent = this;
             selectList.Show();
             tssMsg.Text = selectList.Text;
+            selectList.Activate();
         }
     }
 }

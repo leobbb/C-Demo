@@ -40,6 +40,7 @@
             this.btnShow = new System.Windows.Forms.Button();
             this.lstShow = new System.Windows.Forms.ListBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -153,6 +154,10 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
+            // 
             // Test11_2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,5 +197,6 @@
         private System.Windows.Forms.Button btnShow;
         private System.Windows.Forms.ListBox lstShow;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

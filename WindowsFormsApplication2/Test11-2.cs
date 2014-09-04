@@ -78,18 +78,20 @@ namespace WindowsFormsApplication2
 
         private void btnSave_Click_1(object sender, EventArgs e)
         {
-            try
-            {
-                string file = @"Data\11-3student.dat";
-                Stream stream = new FileStream(file, FileMode.OpenOrCreate, FileAccess.Write);
-                BinaryFormatter bf = new BinaryFormatter();
-                bf.Serialize(stream, list);                
-                stream.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "写文件出错", MessageBoxButtons.OK);
-            }
+            //try
+            //{
+            //    string file = @"Data\11-3student.dat";
+            //    Stream stream = new FileStream(file, FileMode.OpenOrCreate, FileAccess.Write);
+            //    BinaryFormatter bf = new BinaryFormatter();
+            //    bf.Serialize(stream, list);                
+            //    stream.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "写文件出错", MessageBoxButtons.OK);
+            //}
+
+            saveFileDialog1.ShowDialog(); // 显示“另存为”对话框
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -103,30 +105,39 @@ namespace WindowsFormsApplication2
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-            lstShow.Items.Clear();
-            lstShow.Items.Add("学号\t姓名\t性别");
-            string file = @"Data\11-3student.dat";
-            Stream stream = new FileStream(file, FileMode.Open, FileAccess.Read);
-            BinaryFormatter bf = new BinaryFormatter();
-            StudentList students = (StudentList)bf.Deserialize(stream);
-            int k = 0;
-            while (students[k] != null)
-            {
-                int s_no = students[k].sno;
-                string name = students[k].name;
-                bool isMale = students[k].sex;
-                string sex = "";
-                if (isMale)
-                    sex = "男";
-                else
-                    sex = "女";
-                string result = String.Format("{0}\t{1}\t{2}", s_no, name, sex);
-                lstShow.Items.Add(result);
-                ++k;
-            }
-            stream.Close();
+            //lstShow.Items.Clear();
+            //lstShow.Items.Add("学号\t姓名\t性别");
+            //string file = @"Data\11-3student.dat";
+            //Stream stream = new FileStream(file, FileMode.Open, FileAccess.Read);
+            //BinaryFormatter bf = new BinaryFormatter();
+            //StudentList students = (StudentList)bf.Deserialize(stream);
+            //int k = 0;
+            //while (students[k] != null)
+            //{
+            //    int s_no = students[k].sno;
+            //    string name = students[k].name;
+            //    bool isMale = students[k].sex;
+            //    string sex = "";
+            //    if (isMale)
+            //        sex = "男";
+            //    else
+            //        sex = "女";
+            //    string result = String.Format("{0}\t{1}\t{2}", s_no, name, sex);
+            //    lstShow.Items.Add(result);
+            //    ++k;
+            //}
+            //stream.Close();
         }
 
         #endregion
+
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            Stream stream = saveFileDialog1.OpenFile();
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Serialize(stream, list);
+            stream.Close();
+            MessageBox.Show("数据已成功保存！\n" + "文件名为：" + saveFileDialog1.FileName, "恭喜");
+        }
     }
 }

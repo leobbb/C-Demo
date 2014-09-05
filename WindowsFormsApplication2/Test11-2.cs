@@ -127,6 +127,9 @@ namespace WindowsFormsApplication2
             //    ++k;
             //}
             //stream.Close();
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                lblFile.Text = openFileDialog1.FileName;
+            
         }
 
         #endregion
@@ -138,6 +141,32 @@ namespace WindowsFormsApplication2
             bf.Serialize(stream, list);
             stream.Close();
             MessageBox.Show("数据已成功保存！\n" + "文件名为：" + saveFileDialog1.FileName, "恭喜");
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            lstShow.Items.Clear();
+            lstShow.Items.Add("学号\t姓名\t性别");
+            
+            Stream stream = openFileDialog1.OpenFile();
+            BinaryFormatter bf = new BinaryFormatter();
+            StudentList students = (StudentList)bf.Deserialize(stream);
+            int k = 0;
+            while (students[k] != null)
+            {
+                int s_no = students[k].sno;
+                string name = students[k].name;
+                bool isMale = students[k].sex;
+                string sex = "";
+                if (isMale)
+                    sex = "男";
+                else
+                    sex = "女";
+                string result = String.Format("{0}\t{1}\t{2}", s_no, name, sex);
+                lstShow.Items.Add(result);
+                ++k;
+            }
+            stream.Close();
         }
     }
 }

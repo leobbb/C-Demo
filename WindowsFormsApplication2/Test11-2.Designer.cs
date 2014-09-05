@@ -37,10 +37,12 @@
             this.rdoFemale = new System.Windows.Forms.RadioButton();
             this.rdoMale = new System.Windows.Forms.RadioButton();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnShow = new System.Windows.Forms.Button();
+            this.btnOpen = new System.Windows.Forms.Button();
             this.lstShow = new System.Windows.Forms.ListBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.lblFile = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,15 +128,15 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             // 
-            // btnShow
+            // btnOpen
             // 
-            this.btnShow.Location = new System.Drawing.Point(259, 168);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(89, 27);
-            this.btnShow.TabIndex = 6;
-            this.btnShow.Text = "显示";
-            this.btnShow.UseVisualStyleBackColor = true;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            this.btnOpen.Location = new System.Drawing.Point(261, 196);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(89, 27);
+            this.btnOpen.TabIndex = 6;
+            this.btnOpen.Text = "打开";
+            this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // lstShow
             // 
@@ -158,14 +160,28 @@
             // 
             this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
+            // lblFile
+            // 
+            this.lblFile.AutoSize = true;
+            this.lblFile.Location = new System.Drawing.Point(226, 174);
+            this.lblFile.Name = "lblFile";
+            this.lblFile.Size = new System.Drawing.Size(0, 13);
+            this.lblFile.TabIndex = 9;
+            // 
             // Test11_2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(425, 235);
+            this.Controls.Add(this.lblFile);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lstShow);
-            this.Controls.Add(this.btnShow);
+            this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtName);
@@ -194,9 +210,11 @@
         private System.Windows.Forms.RadioButton rdoFemale;
         private System.Windows.Forms.RadioButton rdoMale;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnShow;
+        private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.ListBox lstShow;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label lblFile;
     }
 }

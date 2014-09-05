@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactList", "ContactList\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WriteAndReadFile", "WindowsFormsApplication2\WriteAndReadFile.csproj", "{B6F6DF73-F599-4799-89AC-09F12559705C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test11-7", "Test11-6\Test11-7.csproj", "{1ECDDFB8-CB04-4CDB-A793-6B15FCD0BFB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B6F6DF73-F599-4799-89AC-09F12559705C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6F6DF73-F599-4799-89AC-09F12559705C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6F6DF73-F599-4799-89AC-09F12559705C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ECDDFB8-CB04-4CDB-A793-6B15FCD0BFB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ECDDFB8-CB04-4CDB-A793-6B15FCD0BFB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ECDDFB8-CB04-4CDB-A793-6B15FCD0BFB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ECDDFB8-CB04-4CDB-A793-6B15FCD0BFB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

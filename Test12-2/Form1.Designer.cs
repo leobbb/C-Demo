@@ -187,7 +187,7 @@
             this.btnEnd.Name = "btnEnd";
             this.btnEnd.Size = new System.Drawing.Size(75, 23);
             this.btnEnd.TabIndex = 3;
-            this.btnEnd.Text = "结束";
+            this.btnEnd.Text = "保存";
             this.btnEnd.UseVisualStyleBackColor = true;
             this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
             // 

@@ -82,6 +82,7 @@ namespace Test12_2
             attr = xd.CreateAttribute("学号");
             attr.Value = txtNo.Text;
             student.Attributes.Append(attr);
+            student.Attributes.
 
             XmlElement elem = xd.CreateElement("姓名");
             attr = xd.CreateAttribute("中文名");

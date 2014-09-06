@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WriteAndReadFile", "Windows
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test11-7", "Test11-6\Test11-7.csproj", "{1ECDDFB8-CB04-4CDB-A793-6B15FCD0BFB0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test12-2", "Test12-2\Test12-2.csproj", "{7AF81E2E-C021-4765-A7F7-3D87D6AC2E81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{1ECDDFB8-CB04-4CDB-A793-6B15FCD0BFB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1ECDDFB8-CB04-4CDB-A793-6B15FCD0BFB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1ECDDFB8-CB04-4CDB-A793-6B15FCD0BFB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AF81E2E-C021-4765-A7F7-3D87D6AC2E81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AF81E2E-C021-4765-A7F7-3D87D6AC2E81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AF81E2E-C021-4765-A7F7-3D87D6AC2E81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AF81E2E-C021-4765-A7F7-3D87D6AC2E81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
